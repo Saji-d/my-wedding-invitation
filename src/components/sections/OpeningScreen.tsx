@@ -13,8 +13,8 @@ export default function OpeningScreen({ onComplete }: OpeningScreenProps) {
 
   const handleEnter = () => {
     // Attempt to play music
-    if ((window as any).playWeddingMusic) {
-      (window as any).playWeddingMusic();
+    if ((window as any).startWeddingMusic) {
+      (window as any).startWeddingMusic();
     }
     setIsOpen(true);
     setTimeout(onComplete, 4000); // Allow time for exit animation and reveal

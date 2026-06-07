@@ -76,5 +76,6 @@ export const weddingConfig = {
   islamicBlessing: {
     arabic: "وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنفُسِكُمْ أَزْوَاجًا",
     translation: "And of His signs is that He created for you from yourselves mates that you may find tranquillity in them...",
-  }
+  },
+  googleSheetUrl: process.env.NEXT_PUBLIC_GOOGLE_SHEET_URL || "",
 };

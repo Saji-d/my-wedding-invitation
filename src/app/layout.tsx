@@ -21,10 +21,13 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: `${weddingConfig.couple.displayName1} & ${weddingConfig.couple.displayName2} - Wedding Invitation`,
+  title: "Sajid ❤️ Dilruba | Wedding Invitation",
   description: `Join us to celebrate the wedding of ${weddingConfig.couple.fullName1} and ${weddingConfig.couple.fullName2}.`,
+  icons: {
+    icon: "/favicon.svg",
+  },
   openGraph: {
-    title: `${weddingConfig.couple.displayName1} & ${weddingConfig.couple.displayName2} | Wedding Invitation`,
+    title: "Sajid ❤️ Dilruba | Wedding Invitation",
     description: "We invite you to share our joy and celebrate our wedding.",
     type: "website",
   },

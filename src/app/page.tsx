@@ -27,12 +27,12 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-[var(--background)] text-[var(--foreground)] relative overflow-hidden">
+      <MusicPlayer />
       {!hasEntered && <OpeningScreen onComplete={() => setHasEntered(true)} />}
 
       {hasEntered && (
         <div className="opacity-0 animate-[fadeIn_1s_ease-in-out_forwards]">
           <BackgroundEffects />
-          <MusicPlayer />
           
           <Hero />
           <IslamicBlessing />

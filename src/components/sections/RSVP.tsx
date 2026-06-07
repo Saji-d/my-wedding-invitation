@@ -4,28 +4,48 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { weddingConfig } from "@/config/wedding";
 import { FaWhatsapp } from "react-icons/fa";
+import { HiOutlinePhone } from "react-icons/hi";
 import confetti from "canvas-confetti";
+import { submitToGoogleSheets } from "@/lib/googleSheets";
 
 export default function RSVP() {
   const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
   const [attending, setAttending] = useState<"YES" | "NO" | null>(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name || !attending) return;
+    if (!name || !attending || !phone) return;
 
-    // Trigger confetti
-    if (attending === "YES") {
-      confetti({
-        particleCount: 150,
-        spread: 70,
-        origin: { y: 0.6 },
-        colors: ["#d4af37", "#b76e79", "#800020"]
+    setIsLoading(true);
+
+    try {
+      await submitToGoogleSheets({
+        name,
+        phone,
+        status: attending === "YES" ? "Attending" : "Not Attending",
+        source: "RSVP"
       });
-    }
 
-    setIsSubmitted(true);
+      // Trigger confetti
+      if (attending === "YES") {
+        confetti({
+          particleCount: 150,
+          spread: 70,
+          origin: { y: 0.6 },
+          colors: ["#d4af37", "#b76e79", "#800020"]
+        });
+      }
+
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error("Submission failed:", error);
+      alert("Something went wrong. Please try again or RSVP via WhatsApp.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleWhatsAppRSVP = () => {
@@ -78,6 +98,23 @@ export default function RSVP() {
 
             <div>
               <label className="block font-cormorant text-xl mb-3 text-[var(--color-burgundy-800)] dark:text-[var(--color-champagne)]">
+                Phone Number
+              </label>
+              <div className="relative">
+                <HiOutlinePhone className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
+                <input
+                  type="tel"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  required
+                  className="w-full pl-12 pr-4 py-4 bg-white/50 dark:bg-black/50 border border-[var(--color-gold-400)]/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-[var(--color-gold-400)] font-cormorant text-lg"
+                  placeholder="e.g. +880 1XXX XXXXXX"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className="block font-cormorant text-xl mb-3 text-[var(--color-burgundy-800)] dark:text-[var(--color-champagne)]">
                 Will you attend?
               </label>
               <div className="flex gap-4">
@@ -108,10 +145,17 @@ export default function RSVP() {
 
             <button
               type="submit"
-              disabled={!name || !attending}
-              className="w-full py-4 bg-[var(--color-gold-400)] text-white rounded-xl hover:bg-[var(--color-gold-500)] transition-colors duration-300 font-cormorant tracking-widest uppercase text-lg shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+              disabled={!name || !attending || !phone || isLoading}
+              className="w-full py-4 bg-[var(--color-gold-400)] text-white rounded-xl hover:bg-[var(--color-gold-500)] transition-colors duration-300 font-cormorant tracking-widest uppercase text-lg shadow-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
-              Submit RSVP
+              {isLoading ? (
+                <>
+                  <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                  Processing...
+                </>
+              ) : (
+                "Submit RSVP"
+              )}
             </button>
           </motion.form>
         ) : (

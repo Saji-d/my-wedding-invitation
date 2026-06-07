@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiOutlineUser, HiOutlinePencil } from "react-icons/hi";
+import { submitToGoogleSheets } from "@/lib/googleSheets";
 
 interface Wish {
   id: string;
@@ -15,6 +16,8 @@ export default function GuestWishes() {
   const [wishes, setWishes] = useState<Wish[]>([]);
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   useEffect(() => {
     const saved = localStorage.getItem("wedding_wishes");
@@ -23,23 +26,40 @@ export default function GuestWishes() {
     }
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name.trim() || !message.trim()) return;
+    if (!name.trim() || !message.trim() || isLoading) return;
 
-    const newWish: Wish = {
-      id: Date.now().toString(),
-      name: name.trim(),
-      message: message.trim(),
-      date: new Date().toLocaleDateString(),
-    };
+    setIsLoading(true);
 
-    const updatedWishes = [newWish, ...wishes];
-    setWishes(updatedWishes);
-    localStorage.setItem("wedding_wishes", JSON.stringify(updatedWishes));
-    
-    setName("");
-    setMessage("");
+    try {
+      await submitToGoogleSheets({
+        name: name.trim(),
+        message: message.trim(),
+        source: "Guest Wish"
+      });
+
+      const newWish: Wish = {
+        id: Date.now().toString(),
+        name: name.trim(),
+        message: message.trim(),
+        date: new Date().toLocaleDateString(),
+      };
+
+      const updatedWishes = [newWish, ...wishes];
+      setWishes(updatedWishes);
+      localStorage.setItem("wedding_wishes", JSON.stringify(updatedWishes));
+      
+      setName("");
+      setMessage("");
+      setIsSuccess(true);
+      setTimeout(() => setIsSuccess(false), 5000);
+    } catch (error) {
+      console.error("Wish submission failed:", error);
+      alert("Something went wrong. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -105,10 +125,31 @@ export default function GuestWishes() {
 
               <button
                 type="submit"
-                className="w-full py-3 bg-[var(--color-gold-400)] text-white rounded-xl hover:bg-[var(--color-gold-500)] transition-colors duration-300 font-cormorant tracking-widest uppercase shadow-lg"
+                disabled={isLoading}
+                className="w-full py-3 bg-[var(--color-gold-400)] text-white rounded-xl hover:bg-[var(--color-gold-500)] transition-colors duration-300 font-cormorant tracking-widest uppercase shadow-lg disabled:opacity-50 flex items-center justify-center gap-2"
               >
-                Send Wish
+                {isLoading ? (
+                  <>
+                    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                    Sending...
+                  </>
+                ) : (
+                  "Send Wish"
+                )}
               </button>
+
+              <AnimatePresence>
+                {isSuccess && (
+                  <motion.p
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0 }}
+                    className="text-center font-cormorant text-green-600 dark:text-green-400"
+                  >
+                    Your wishes have been received 🌸
+                  </motion.p>
+                )}
+              </AnimatePresence>
             </form>
           </motion.div>
 
