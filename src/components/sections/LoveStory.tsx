@@ -60,6 +60,18 @@ export default function LoveStory() {
             </motion.div>
           ))}
         </div>
+
+        {/* Closing decorative element */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="mt-20 flex flex-col items-center"
+        >
+          <div className="w-px h-16 bg-gradient-to-b from-[var(--color-gold-400)] to-transparent mb-4 opacity-50"></div>
+          <HiHeart className="text-[var(--color-rosegold)] w-6 h-6 animate-pulse" />
+        </motion.div>
       </div>
     </section>
   );

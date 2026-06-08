@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import OpeningScreen from "@/components/sections/OpeningScreen";
 import BackgroundEffects from "@/components/layout/BackgroundEffects";
 import MusicPlayer from "@/components/ui/MusicPlayer";
@@ -21,24 +21,24 @@ import { AnimatePresence, motion } from "framer-motion";
 export default function Home() {
   const [hasEntered, setHasEntered] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const lastSectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const windowHeight = window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-      
-      // Show when user scrolls beyond 800px OR 50% of the page
-      if (scrollY > 800 || scrollY > (documentHeight - windowHeight) / 2) {
-        setShowScrollTop(true);
-      } else {
-        setShowScrollTop(false);
-      }
-    };
+    if (!hasEntered) return;
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setShowScrollTop(entry.isIntersecting);
+      },
+      { threshold: 0.1 } // Triggers when 10% of the last section is visible
+    );
+
+    if (lastSectionRef.current) {
+      observer.observe(lastSectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [hasEntered]);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -56,14 +56,17 @@ export default function Home() {
           <Hero />
           <IslamicBlessing />
           <ScratchCard />
-          <LoveStory />
           <Countdown />
+          <LoveStory />
+          <Gallery />
           <Events />
           <Venue />
-          <Gallery />
-          <GuestWishes />
           <RSVP />
-          <Closing />
+          <GuestWishes />
+          
+          <div ref={lastSectionRef}>
+            <Closing />
+          </div>
 
           {/* Back to top button */}
           <AnimatePresence>
