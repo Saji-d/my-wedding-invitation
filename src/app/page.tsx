@@ -11,6 +11,7 @@ import Countdown from "@/components/sections/Countdown";
 import Venue from "@/components/sections/Venue";
 import Gallery from "@/components/sections/Gallery";
 import ScratchCard from "@/components/sections/ScratchCard";
+import ModernSlideshow from "@/components/sections/ModernSlideshow";
 import GuestWishes from "@/components/sections/GuestWishes";
 import RSVP from "@/components/sections/RSVP";
 import IslamicBlessing from "@/components/sections/IslamicBlessing";
@@ -36,6 +37,7 @@ export default function Home() {
           <Hero />
           <IslamicBlessing />
           <ScratchCard />
+          <ModernSlideshow />
           <LoveStory />
           <Countdown />
           <Events />
