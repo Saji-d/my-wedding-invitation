@@ -151,33 +151,34 @@ export default function RSVP() {
             <button
               type="submit"
               disabled={!name || !attending || !phone || isLoading}
-              className={`w-full py-4 rounded-xl transition-all duration-300 font-cormorant tracking-widest uppercase text-lg shadow-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 relative overflow-hidden group ${
-                attending === "REGRETFULLY DECLINE"
-                  ? "bg-[#8B0000] text-white hover:bg-[#660000]"
-                  : "bg-[#014421] text-white hover:bg-[#013220]"
+              className={`w-full py-4 rounded-xl transition-all duration-500 font-cormorant tracking-widest uppercase text-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 relative overflow-hidden group hover:scale-[1.02] hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(212,175,55,0.3)] ${
+                !attending ? "bg-[var(--color-burgundy-800)] text-[var(--color-champagne)] shadow-lg" : "text-white shadow-[0_4px_15px_rgba(212,175,55,0.2)]"
               }`}
             >
-              {/* Elegant Rotating Glow Border */}
-              {!isLoading && attending && (
-                <div className="absolute inset-[-2px] rounded-xl overflow-hidden pointer-events-none opacity-50 z-0">
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-[200%] bg-[conic-gradient(from_0deg,transparent_0_300deg,rgba(212,175,55,1)_360deg)] animate-[spin_3s_linear_infinite]"></div>
-                </div>
+              {/* Luxury Animated Shimmer Border Background */}
+              {attending && !isLoading && (
+                <div className="absolute inset-0 z-0 bg-[linear-gradient(90deg,#D4AF37_0%,#F3C4CF_25%,#800020_50%,#D4AF37_75%,#F3C4CF_100%)] bg-[length:200%_200%] animate-luxury-shimmer"></div>
               )}
               
-              {/* Inner mask to keep glow on border */}
-              {!isLoading && attending && (
-                <div className={`absolute inset-[2px] rounded-[10px] z-10 transition-colors duration-300 ${
-                  attending === "REGRETFULLY DECLINE" ? "bg-[#8B0000] group-hover:bg-[#660000]" : "bg-[#014421] group-hover:bg-[#013220]"
+              {/* Inner mask to provide background color and keep border glow */}
+              {attending && !isLoading && (
+                <div className={`absolute inset-[2px] rounded-[10px] z-10 transition-colors duration-500 ${
+                  attending === "REGRETFULLY DECLINE" ? "bg-[#8B0000] group-hover:bg-[#7a0000]" : "bg-[#014421] group-hover:bg-[#013220]"
                 }`}></div>
               )}
 
+              {/* Light Sweep Effect */}
+              {attending && !isLoading && (
+                <div className="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/20 to-transparent z-20 animate-light-sweep pointer-events-none"></div>
+              )}
+
               {isLoading ? (
-                <>
-                  <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin relative z-20" />
-                  <span className="relative z-20">Processing...</span>
-                </>
+                <div className="relative z-30 flex items-center gap-2">
+                  <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                  <span>Processing...</span>
+                </div>
               ) : (
-                <span className="relative z-20">Confirm Attendance</span>
+                <span className="relative z-30 drop-shadow-md">Confirm Attendance</span>
               )}
             </button>
           </motion.form>

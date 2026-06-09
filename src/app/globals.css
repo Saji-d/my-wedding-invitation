@@ -74,13 +74,23 @@ body {
   to { opacity: 1; }
 }
 
-@keyframes button-glow {
-  0% { box-shadow: 0 0 5px rgba(212, 175, 55, 0.4), 0 0 10px rgba(183, 110, 121, 0.2); }
-  33% { box-shadow: 0 0 8px rgba(183, 110, 121, 0.5), 0 0 15px rgba(212, 175, 55, 0.2); }
-  66% { box-shadow: 0 0 8px rgba(128, 0, 32, 0.4), 0 0 15px rgba(183, 110, 121, 0.3); }
-  100% { box-shadow: 0 0 5px rgba(212, 175, 55, 0.4), 0 0 10px rgba(183, 110, 121, 0.2); }
+@keyframes luxury-shimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-.animate-button-glow {
-  animation: button-glow 4s linear infinite;
+@keyframes light-sweep {
+  0% { transform: translateX(-150%) skewX(-20deg); }
+  20% { transform: translateX(300%) skewX(-20deg); }
+  100% { transform: translateX(300%) skewX(-20deg); }
+}
+
+.animate-luxury-shimmer {
+  background-size: 200% 200%;
+  animation: luxury-shimmer 4s ease-in-out infinite;
+}
+
+.animate-light-sweep {
+  animation: light-sweep 6s cubic-bezier(0.25, 1, 0.5, 1) infinite;
 }
