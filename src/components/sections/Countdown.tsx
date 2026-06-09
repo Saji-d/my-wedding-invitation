@@ -66,7 +66,7 @@ export default function Countdown() {
               {/* Inner ring animation */}
               <div className="absolute inset-1 rounded-full border border-dashed border-[var(--color-gold-500)] opacity-50 animate-[spin_20s_linear_infinite]"></div>
               
-              <span className="text-3xl md:text-5xl font-cormorant text-[var(--color-burgundy-800)] dark:text-[var(--color-ivory)]">
+              <span className="text-4xl md:text-6xl font-playfair font-bold text-[var(--color-burgundy-800)] dark:text-[var(--color-ivory)] drop-shadow-sm">
                 {block.value.toString().padStart(2, "0")}
               </span>
               <span className="text-xs tracking-widest uppercase font-cormorant text-[var(--color-gold-500)] mt-1">

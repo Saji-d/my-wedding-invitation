@@ -63,8 +63,8 @@ export default function RSVP() {
   };
 
   return (
-    <section className="py-24 lg:py-32 px-4 bg-[var(--background)] border-b border-[var(--color-gold-400)]/10 flex flex-col justify-center min-h-[80vh] lg:min-h-0">
-      <div className="max-w-3xl mx-auto text-center w-full">
+    <section className="py-24 lg:py-32 px-4 bg-[var(--background)] border-b border-[var(--color-gold-400)]/10 flex flex-col justify-center min-h-[80vh] lg:min-h-0 relative z-10">
+      <div className="max-w-3xl mx-auto text-center w-full mt-8 md:mt-0">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -128,8 +128,8 @@ export default function RSVP() {
                   onClick={() => setAttending("JOYFULLY ACCEPT")}
                   className={`flex-1 py-3 lg:py-4 rounded-xl font-cormorant text-lg tracking-widest uppercase transition-all duration-300 border ${
                     attending === "JOYFULLY ACCEPT"
-                      ? "bg-[var(--color-gold-400)] text-white border-[var(--color-gold-400)] shadow-lg"
-                      : "bg-transparent text-[var(--color-gold-500)] border-[var(--color-gold-400)] hover:bg-[var(--color-gold-400)]/10"
+                      ? "bg-[#059669] text-white border-[#059669] shadow-lg"
+                      : "bg-transparent text-emerald-600 border-emerald-500 hover:bg-emerald-50"
                   }`}
                 >
                   Joyfully Accept
@@ -139,8 +139,8 @@ export default function RSVP() {
                   onClick={() => setAttending("REGRETFULLY DECLINE")}
                   className={`flex-1 py-3 lg:py-4 rounded-xl font-cormorant text-lg tracking-widest uppercase transition-all duration-300 border ${
                     attending === "REGRETFULLY DECLINE"
-                      ? "bg-[#B76E79] text-white border-[#B76E79] shadow-lg"
-                      : "bg-transparent text-[#B76E79] border-[#B76E79] hover:bg-[#B76E79]/10"
+                      ? "bg-[#E11D48] text-white border-[#E11D48] shadow-lg"
+                      : "bg-transparent text-rose-600 border-rose-500 hover:bg-rose-50"
                   }`}
                 >
                   Regretfully Decline
@@ -151,21 +151,33 @@ export default function RSVP() {
             <button
               type="submit"
               disabled={!name || !attending || !phone || isLoading}
-              className={`w-full py-4 rounded-xl transition-all duration-300 font-cormorant tracking-widest uppercase text-lg shadow-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 ${
-                attending === "JOYFULLY ACCEPT"
-                  ? "bg-[#014421] text-white hover:bg-[#013220]"
-                  : attending === "REGRETFULLY DECLINE"
-                  ? "bg-[#B76E79] text-white hover:bg-[#A65D68]"
-                  : "bg-[var(--color-burgundy-800)] text-white hover:bg-[var(--color-burgundy-900)]"
+              className={`w-full py-4 rounded-xl transition-all duration-300 font-cormorant tracking-widest uppercase text-lg shadow-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 relative overflow-hidden group ${
+                attending === "REGRETFULLY DECLINE"
+                  ? "bg-[#8B0000] text-white hover:bg-[#660000]"
+                  : "bg-[#014421] text-white hover:bg-[#013220]"
               }`}
             >
+              {/* Elegant Rotating Glow Border */}
+              {!isLoading && attending && (
+                <div className="absolute inset-[-2px] rounded-xl overflow-hidden pointer-events-none opacity-50 z-0">
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-[200%] bg-[conic-gradient(from_0deg,transparent_0_300deg,rgba(212,175,55,1)_360deg)] animate-[spin_3s_linear_infinite]"></div>
+                </div>
+              )}
+              
+              {/* Inner mask to keep glow on border */}
+              {!isLoading && attending && (
+                <div className={`absolute inset-[2px] rounded-[10px] z-10 transition-colors duration-300 ${
+                  attending === "REGRETFULLY DECLINE" ? "bg-[#8B0000] group-hover:bg-[#660000]" : "bg-[#014421] group-hover:bg-[#013220]"
+                }`}></div>
+              )}
+
               {isLoading ? (
                 <>
-                  <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                  Processing...
+                  <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin relative z-20" />
+                  <span className="relative z-20">Processing...</span>
                 </>
               ) : (
-                "Confirm Attendance"
+                <span className="relative z-20">Confirm Attendance</span>
               )}
             </button>
           </motion.form>
@@ -173,7 +185,7 @@ export default function RSVP() {
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className={`glass p-10 lg:p-12 rounded-3xl space-y-4 lg:space-y-6 border shadow-2xl ${
+            className={`glass p-10 lg:p-12 rounded-3xl space-y-4 lg:space-y-6 border shadow-2xl mb-32 lg:mb-0 ${
               attending === "JOYFULLY ACCEPT"
                 ? "border-[var(--color-gold-400)]/40 bg-[var(--color-champagne)]/20"
                 : "border-[#B76E79]/40 bg-[#B76E79]/5"
@@ -184,21 +196,17 @@ export default function RSVP() {
                 attending === "JOYFULLY ACCEPT" ? "text-[var(--color-gold-400)]" : "text-[#B76E79]"
               }`} />
             </div>
-            <h3 className={`text-3xl font-playfair ${
-              attending === "JOYFULLY ACCEPT" 
-                ? "text-[var(--color-gold-500)]" 
-                : "text-[#B76E79]"
-            }`}>
+            <h3 className="text-3xl md:text-4xl font-playfair font-bold text-[#B76E79] drop-shadow-[0_0_8px_rgba(183,110,121,0.4)]">
               {attending === "JOYFULLY ACCEPT" ? "Can't wait to see you!" : "You will be missed!"}
             </h3>
             <p className={`font-cormorant text-xl leading-relaxed ${
               attending === "JOYFULLY ACCEPT"
-                ? "text-gray-700 dark:text-gray-300"
-                : "text-gray-600 dark:text-gray-400"
+                ? "text-[var(--color-gold-500)]"
+                : "text-[var(--color-gold-500)]"
             }`}>
               {attending === "JOYFULLY ACCEPT" 
                 ? "Thank you for confirming your attendance. We look forward to celebrating with you."
-                : "Thank you for letting us know. While we'll miss celebrating with you in person, your love, prayers, and blessings mean the world to us. ❤️"}
+                : "Thank you for letting us know. While we'll miss celebrating with you in person, your love, prayers, and blessings mean the world to us."}
             </p>
           </motion.div>
         )}

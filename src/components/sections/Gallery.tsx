@@ -15,14 +15,14 @@ export default function Gallery() {
   const images = weddingConfig.gallery;
 
   return (
-    <section className="py-32 lg:py-24 px-4 bg-[var(--color-champagne)] dark:bg-[var(--color-burgundy-900)] relative z-10 border-y border-[var(--color-gold-400)]/10">
-      <div className="max-w-4xl mx-auto flex flex-col items-center">
+    <section className="py-40 lg:py-24 bg-[var(--color-champagne)] dark:bg-[var(--color-burgundy-900)] relative z-10 border-y border-[var(--color-gold-400)]/10 overflow-hidden w-full">
+      <div className="max-w-4xl mx-auto flex flex-col items-center px-4">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1 }}
-          className="text-center mb-16"
+          className="text-center mb-12 lg:mb-16"
         >
           <h2 className="text-5xl md:text-6xl font-great-vibes text-[var(--color-burgundy-900)] dark:text-[var(--color-ivory)] mb-4">
             Moments Captured
@@ -30,7 +30,7 @@ export default function Gallery() {
           <div className="w-16 h-[1px] bg-[var(--color-gold-400)] mx-auto"></div>
         </motion.div>
 
-        <div className="w-full max-w-[300px] sm:max-w-[340px] lg:max-w-[350px] relative px-4 py-10 lg:py-12">
+        <div className="w-full max-w-[300px] sm:max-w-[340px] lg:max-w-[350px] relative py-10 lg:py-12 lg:scale-[0.9] origin-center">
           <Swiper
             modules={[Autoplay, EffectCards, Mousewheel, Keyboard]}
             effect={"cards"}
@@ -39,7 +39,7 @@ export default function Gallery() {
             slidesPerView={1}
             loop={true}
             autoplay={{
-              delay: 3500,
+              delay: 2500,
               disableOnInteraction: false,
               pauseOnMouseEnter: true,
             }}
@@ -59,8 +59,8 @@ export default function Gallery() {
           >
             {images.map((story, index) => (
               <SwiperSlide key={index} className="flex flex-col items-center !overflow-visible">
-                <div className="bg-white p-3 pb-8 sm:p-4 sm:pb-12 lg:p-4 lg:pb-10 shadow-2xl rounded-sm border border-gray-100 w-full mb-8">
-                  <div className="relative aspect-[3/4] w-full overflow-hidden mb-4 md:mb-6 shadow-inner bg-gray-50">
+                <div className="bg-white p-3 pb-4 sm:p-4 sm:pb-5 lg:p-4 lg:pb-6 shadow-2xl rounded-sm border border-gray-100 w-full mb-8">
+                  <div className="relative aspect-[3/4] w-full overflow-hidden mb-3 md:mb-4 shadow-inner bg-gray-50">
                     <Image
                       src={story.src}
                       alt={story.caption}

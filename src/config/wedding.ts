@@ -27,7 +27,7 @@ export const weddingConfig = {
   timeline: [
   {
     title: "First Meeting",
-    description: "A movie, shared meals, and meaningful conversations marked the beginning of our journey together.",
+    description: "The day our story quietly began with a movie date.",
     date: "June 2024",
   },
   {
@@ -47,7 +47,7 @@ export const weddingConfig = {
   },
   {
     title: "Engagement",
-    description: "Surrounded by family and blessings, we celebrated the start of our forever together.",
+    description: "Where two families became one.",
     date: "May 2026",
   },
   {
@@ -90,7 +90,7 @@ export const weddingConfig = {
     },
     {
       src: "/images/gallery/5.jpeg",
-      caption: "In Your Eyes, I Found Home"
+      caption: "Lost In Your Eyes"
     },
     {
       src: "/images/gallery/6.jpeg",

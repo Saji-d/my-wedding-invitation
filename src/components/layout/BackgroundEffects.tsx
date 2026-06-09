@@ -19,38 +19,41 @@ export default function BackgroundEffects() {
         const petal = document.createElement("div");
         petal.className = "petal";
         
-        // Distribute petals initially across the visible area and beyond
+        container.appendChild(petal);
+
+        // Initial setup - ALWAYS safely above viewport, staggered vertically
         gsap.set(petal, {
           x: Math.random() * window.innerWidth,
-          y: Math.random() * window.innerHeight - 200, 
+          y: -150 - (Math.random() * window.innerHeight * 2),
           rotation: Math.random() * 360,
           scale: 0.5 + Math.random() * 0.7,
           opacity: 0.2 + Math.random() * 0.4,
         });
 
-        container.appendChild(petal);
-
         const animatePetal = (p: HTMLElement) => {
-            // Random duration for each fall to prevent synchronization
-            const duration = 15 + Math.random() * 20;
+            const duration = 15 + Math.random() * 10;
+            const currentWidth = window.innerWidth;
+            const currentHeight = window.innerHeight;
             
+            // True rainfall effect
             gsap.to(p, {
-                y: `+=${window.innerHeight + 500}`, 
-                x: `+=${-100 + Math.random() * 200}`,
-                rotation: `+=${360 + Math.random() * 360}`,
+                y: currentHeight + 150, // fall safely past bottom
+                x: `+=${-15 + Math.random() * 30}`, // very minimal horizontal sway
+                rotation: `+=${180 + Math.random() * 180}`,
                 duration: duration,
                 ease: "none",
                 onComplete: () => {
-                    // Reset to just above viewport
+                    // Reset to just above viewport, random X
                     gsap.set(p, { 
-                        y: -100, 
-                        x: Math.random() * window.innerWidth 
+                        y: -150 - (Math.random() * 100), 
+                        x: Math.random() * currentWidth 
                     });
                     animatePetal(p);
                 }
             });
         };
 
+        // Start animation immediately
         animatePetal(petal);
       }
     }, containerRef);

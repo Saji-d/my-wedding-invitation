@@ -40,7 +40,7 @@ export default function Hero() {
       </div>
 
       <motion.div
-        className="z-20 text-center space-y-8 md:space-y-12 lg:space-y-10 max-w-4xl -mt-16 md:mt-0 lg:-mt-20 px-4"
+        className="z-20 text-center space-y-8 md:space-y-12 lg:space-y-10 max-w-4xl -mt-12 md:mt-0 lg:-mt-10 px-4"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.5, ease: "easeOut", delay: 0.5 }}
@@ -61,7 +61,7 @@ export default function Hero() {
           {weddingConfig.couple.displayName2}
         </h1>
 
-        <div className="w-20 md:w-32 h-[1px] bg-[var(--color-gold-400)] mx-auto my-8 md:my-12 opacity-70"></div>
+        <div className="w-20 md:w-32 h-[1px] bg-[var(--color-gold-400)] mx-auto my-6 md:my-8 lg:my-10 opacity-70"></div>
 
         <p 
           className="text-xl md:text-3xl font-playfair italic text-[var(--color-champagne)] leading-relaxed px-2 drop-shadow-lg"
@@ -72,7 +72,7 @@ export default function Hero() {
       </motion.div>
 
       <motion.div
-        className="absolute bottom-28 md:bottom-12 lg:bottom-16 left-1/2 -translate-x-1/2 flex flex-col items-center z-20"
+        className="absolute bottom-16 md:bottom-12 lg:bottom-16 left-1/2 -translate-x-1/2 flex flex-col items-center z-20"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
@@ -83,12 +83,12 @@ export default function Hero() {
         }}
       >
         <span 
-          className="text-xs tracking-widest uppercase mb-2 font-cormorant text-[var(--color-gold-400)]"
+          className="text-[10px] md:text-xs tracking-widest uppercase mb-2 font-cormorant text-[var(--color-gold-400)] lg:hidden"
           style={{ textShadow: "0 4px 16px rgba(0,0,0,0.6)" }}
         >
           Scroll to discover
         </span>
-        <HiChevronDown className="w-6 h-6 text-[var(--color-gold-400)]" />
+        <HiChevronDown className="w-5 h-5 md:w-6 md:h-6 text-[var(--color-gold-400)]" />
       </motion.div>
     </section>
   );

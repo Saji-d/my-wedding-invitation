@@ -26,6 +26,15 @@ export default function Events() {
           </p>
         </motion.div>
 
+        <div className="flex justify-center mb-12 opacity-80">
+          <svg width="120" height="24" viewBox="0 0 120 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 12h45M75 12h45" stroke="var(--color-gold-400)" strokeWidth="1" strokeLinecap="round" />
+            <path d="M50 8l10 10l10-10-10-10z" fill="var(--color-gold-400)" fillOpacity="0.2" stroke="var(--color-gold-400)" strokeWidth="1" />
+            <circle cx="60" cy="12" r="3" fill="var(--color-gold-400)" />
+            <path d="M45 12c0-3 3-6 5-6M75 12c0-3-3-6-5-6" stroke="var(--color-gold-400)" strokeWidth="1" />
+          </svg>
+        </div>
+
         <div className="flex justify-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -40,17 +49,17 @@ export default function Events() {
               </h3>
 
               <div className="space-y-6 flex flex-col items-center">
-                <div className="flex items-center gap-4 text-xl font-cormorant text-gray-700 dark:text-gray-300">
+                <div className="flex items-center gap-4 text-xl md:text-2xl font-playfair font-medium tracking-wide text-gray-700 dark:text-gray-300">
                   <HiOutlineCalendar className="text-[var(--color-gold-500)] w-6 h-6" />
                   <span>{wedding.displayDate}</span>
                 </div>
                 
-                <div className="flex items-center gap-4 text-xl font-cormorant text-gray-700 dark:text-gray-300">
+                <div className="flex items-center gap-4 text-xl md:text-2xl font-playfair font-medium tracking-wide text-gray-700 dark:text-gray-300">
                   <HiOutlineClock className="text-[var(--color-gold-500)] w-6 h-6" />
                   <span>7:00 PM onwards</span>
                 </div>
 
-                <div className="flex items-center gap-4 text-xl font-cormorant text-gray-700 dark:text-gray-300 max-w-md">
+                <div className="flex items-center gap-4 text-lg md:text-xl font-cormorant text-gray-700 dark:text-gray-300 max-w-md mt-2">
                   <HiOutlineLocationMarker className="text-[var(--color-gold-500)] w-6 h-6 flex-shrink-0" />
                   <span>{weddingConfig.venue.name}<br />{weddingConfig.venue.address}</span>
                 </div>
