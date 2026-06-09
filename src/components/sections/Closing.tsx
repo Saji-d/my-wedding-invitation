@@ -14,7 +14,7 @@ export default function Closing() {
           viewport={{ once: true }}
           transition={{ duration: 1, type: "spring" }}
         >
-          <HiHeart className="w-12 md:w-10 h-12 md:h-10 text-[var(--color-rosegold)] mx-auto animate-pulse" />
+          <HiHeart className="w-14 md:w-10 h-14 md:h-10 text-[var(--color-rosegold)] mx-auto animate-pulse" />
         </motion.div>
 
         <motion.p
@@ -29,12 +29,32 @@ export default function Closing() {
           We look forward to celebrating with you.
         </motion.p>
 
+        {/* Mobile Layout: Stacked Names */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.6 }}
+          className="flex flex-col items-center gap-1 md:hidden"
+        >
+          <h2 className="text-8xl font-great-vibes text-[var(--color-gold-500)] drop-shadow-sm leading-none">
+            {weddingConfig.couple.displayName1}
+          </h2>
+          <span className="text-5xl font-great-vibes text-[var(--color-rosegold)] opacity-80 my-2">
+            &
+          </span>
+          <h2 className="text-8xl font-great-vibes text-[var(--color-gold-500)] drop-shadow-sm leading-none">
+            {weddingConfig.couple.displayName2}
+          </h2>
+        </motion.div>
+
+        {/* Desktop Layout: Single Line */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.6 }}
-          className="text-7xl md:text-7xl lg:text-8xl font-great-vibes text-[var(--color-gold-500)] drop-shadow-sm"
+          className="hidden md:block text-7xl lg:text-8xl font-great-vibes text-[var(--color-gold-500)] drop-shadow-sm"
         >
           {weddingConfig.couple.displayName1} & {weddingConfig.couple.displayName2}
         </motion.h2>

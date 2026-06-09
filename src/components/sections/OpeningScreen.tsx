@@ -16,6 +16,10 @@ export default function OpeningScreen({ onComplete }: OpeningScreenProps) {
     if ((window as any).startWeddingMusic) {
       (window as any).startWeddingMusic();
     }
+    
+    // Trigger ceremonial petal shower
+    window.dispatchEvent(new Event('triggerCeremonialShower'));
+    
     setIsOpen(true);
     // Almost instant transition (300ms)
     setTimeout(onComplete, 300);

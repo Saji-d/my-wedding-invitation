@@ -40,7 +40,7 @@ export default function Hero() {
       </div>
 
       <motion.div
-        className="z-20 text-center space-y-8 md:space-y-12 lg:space-y-10 max-w-4xl -mt-12 md:mt-0 lg:-mt-10 px-4"
+        className="z-20 text-center space-y-8 md:space-y-12 lg:space-y-10 max-w-4xl -mt-16 md:mt-0 lg:-mt-10 px-4"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.5, ease: "easeOut", delay: 0.5 }}
