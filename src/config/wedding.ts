@@ -70,23 +70,23 @@ export const weddingConfig = {
   gallery: [
     {
       src: "/images/gallery/hero.jpeg",
-      caption: "Forever Starts Here"
+      caption: "Our Next Chapter"
     },
     {
       src: "/images/gallery/1.jpeg",
-      caption: "A Quiet Promise"
+      caption: "Forever Starts With You"
     },
     {
       src: "/images/gallery/2.jpeg",
-      caption: "Every Smile Tells A Story"
+      caption: "My Heart Found Home"
     },
     {
       src: "/images/gallery/3.jpeg",
-      caption: "Hand In Hand"
+      caption: "You Are My Always"
     },
     {
       src: "/images/gallery/4.jpeg",
-      caption: "Laughter In Our Souls"
+      caption: "Love Beyond Horizons"
     },
     {
       src: "/images/gallery/5.jpeg",
@@ -94,43 +94,43 @@ export const weddingConfig = {
     },
     {
       src: "/images/gallery/6.jpeg",
-      caption: "Where Forever Felt Easy"
+      caption: "My Everyday Favorite"
     },
     {
       src: "/images/gallery/7.jpeg",
-      caption: "A Thousand Words"
+      caption: "Every Step With You"
     },
     {
       src: "/images/gallery/8.jpeg",
-      caption: "Wrapped In Love"
+      caption: "Life Looks Better"
     },
     {
       src: "/images/gallery/9.jpeg",
-      caption: "Our Favorite Place"
+      caption: "Our Little World"
     },
     {
       src: "/images/gallery/10.jpeg",
-      caption: "Timeless Love"
+      caption: "My Better Half"
     },
     {
-      src: "/images/gallery/11.jpeg",
-      caption: "Our Beautiful Melody"
+      src: "/images/gallery/11.PNG",
+      caption: "Falling For You Still"
     },
     {
       src: "/images/gallery/12.jpeg",
-      caption: "Golden Memories"
+      caption: "Quietly In Love"
     },
     {
       src: "/images/gallery/13.jpeg",
-      caption: "Purely Us"
+      caption: "Dancing Into Forever"
     },
     {
-      src: "/images/gallery/14.PNG",
-      caption: "Capturing Magic"
+      src: "/images/gallery/14.jpeg",
+      caption: "You Light Me Up"
     },
     {
       src: "/images/gallery/15.jpeg",
-      caption: "Growing Together"
+      caption: "My Answer Is You"
     },
   ],
   islamicBlessing: {

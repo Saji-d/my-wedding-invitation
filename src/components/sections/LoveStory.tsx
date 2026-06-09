@@ -30,34 +30,37 @@ export default function LoveStory() {
 
           {weddingConfig.timeline.map((item, index) => {
             const isEven = index % 2 === 0;
+            const timelineImages = [
+              "/images/love_story/our_beginning.jpeg",
+              "/images/love_story/friendship.PNG",
+              "/images/love_story/love.jpeg",
+              "/images/love_story/promise.PNG",
+              "/images/love_story/engagement.PNG",
+              "/images/love_story/wedding.PNG"
+            ];
+            
             return (
               <motion.div 
                 key={index} 
                 className={`flex w-full items-center justify-center mb-16 lg:mb-24 last:mb-0 ${
                   isEven ? "flex-row" : "flex-row-reverse"
                 }`}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
+                initial={{ opacity: 0, x: isEven ? -50 : 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
+                transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
               >
                 {/* Image Side */}
-                <motion.div 
-                  className="w-[42%] px-2 md:px-6"
-                  initial={{ x: isEven ? -50 : 50, opacity: 0 }}
-                  whileInView={{ x: 0, opacity: 1 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.8, ease: "easeOut" }}
-                >
+                <div className="w-[42%] px-2 md:px-6">
                   <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden shadow-xl border border-[var(--color-gold-400)]/20">
                     <Image
-                      src={images[index]?.src || "/images/gallery/hero.jpeg"}
+                      src={timelineImages[index] || "/images/gallery/hero.jpeg"}
                       alt={item.title}
                       fill
                       className="object-cover object-center"
                     />
                   </div>
-                </motion.div>
+                </div>
 
                 {/* Center Icon */}
                 <div className="w-[16%] flex justify-center items-center z-10 relative shrink-0">
@@ -68,15 +71,9 @@ export default function LoveStory() {
                 </div>
 
                 {/* Content Side */}
-                <motion.div 
-                  className="w-[42%] px-2 md:px-6"
-                  initial={{ x: isEven ? 50 : -50, opacity: 0 }}
-                  whileInView={{ x: 0, opacity: 1 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.8, ease: "easeOut" }}
-                >
+                <div className="w-[42%] px-2 md:px-6">
                   <div className="w-full aspect-[16/9] glass p-2 md:p-8 rounded-2xl flex flex-col justify-center items-center border border-[var(--color-gold-400)]/20 shadow-xl text-center">
-                    <h3 className="text-xs md:text-xl font-playfair font-bold text-[#F4D7A1] mb-1 md:mb-2 leading-tight uppercase tracking-wider drop-shadow-md">
+                    <h3 className="text-xs md:text-xl font-playfair font-bold uppercase tracking-[0.08em] mb-1 md:mb-2 leading-tight bg-[linear-gradient(135deg,#E8B4B8_0%,#C97A7E_50%,#F2D0D2_100%)] bg-clip-text text-transparent">
                       {item.title}
                     </h3>
                     <div className="mb-2 md:mb-4">
@@ -88,7 +85,7 @@ export default function LoveStory() {
                       "{item.description}"
                     </p>
                   </div>
-                </motion.div>
+                </div>
               </motion.div>
             );
           })}

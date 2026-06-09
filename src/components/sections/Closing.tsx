@@ -13,8 +13,14 @@ export default function Closing() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1, type: "spring" }}
+          className="flex justify-center"
         >
-          <HiHeart className="w-14 md:w-10 h-14 md:h-10 text-[var(--color-rosegold)] mx-auto animate-pulse" />
+          <div className="relative inline-flex items-center justify-center">
+            {/* Softer outer bloom */}
+            <div className="absolute w-full h-full bg-[#F3C4CF] blur-[20px] md:blur-[25px] opacity-40 rounded-full animate-pulse"></div>
+            {/* Inner stronger glow and heart */}
+            <HiHeart className="w-14 md:w-14 h-14 md:h-14 text-[#D98A9B] relative z-10 animate-pulse drop-shadow-[0_0_10px_rgba(217,138,155,0.7)]" />
+          </div>
         </motion.div>
 
         <motion.p
@@ -73,8 +79,8 @@ export default function Closing() {
             <p className="font-playfair text-lg md:text-xl tracking-[0.4em] text-[var(--color-gold-500)] mb-2 md:mb-4 uppercase">
                 Friday
             </p>
-            <p className="font-playfair text-5xl md:text-6xl lg:text-7xl font-bold tracking-[0.15em] pl-[0.15em] bg-gradient-to-b from-[#F7E7CE] via-[#D4AF37] to-[#AA7C11] bg-clip-text text-transparent drop-shadow-sm">
-                17 JULY 2026
+            <p className="font-playfair text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-[0.15em] pl-[0.15em] bg-gradient-to-b from-[#F7E7CE] via-[#D4AF37] to-[#AA7C11] bg-clip-text text-transparent drop-shadow-sm whitespace-nowrap">
+                17<span className="inline-block align-top text-[0.45em] ml-[0.05em] mr-[0.05em] font-bold">TH</span> JULY 2026
             </p>
           </div>
         </motion.div>
