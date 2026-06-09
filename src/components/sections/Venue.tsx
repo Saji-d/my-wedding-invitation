@@ -13,8 +13,13 @@ export default function Venue() {
   }, []);
 
   const openDirections = () => {
-    const { lat, lng } = weddingConfig.venue.coordinates;
-    window.open(`https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`, "_blank");
+    const { googleMapsUrl } = weddingConfig.venue;
+    if (googleMapsUrl) {
+      window.open(googleMapsUrl, "_blank");
+    } else {
+      const { lat, lng } = weddingConfig.venue.coordinates;
+      window.open(`https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`, "_blank");
+    }
   };
 
   return (

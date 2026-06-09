@@ -14,7 +14,7 @@ export default function Hero() {
           src="/images/gallery/hero.jpeg"
           alt="Wedding Hero"
           fill
-          className="object-cover brightness-[1.05] contrast-[1.05]"
+          className="object-cover brightness-[0.9] contrast-[1.1]"
           priority
           quality={100}
         />
@@ -22,7 +22,7 @@ export default function Hero() {
         <div 
           className="absolute inset-0 z-10" 
           style={{ 
-            background: "linear-gradient(rgba(0,0,0,0.20), rgba(0,0,0,0.35))" 
+            background: "linear-gradient(rgba(0,0,0,0.30), rgba(0,0,0,0.45))" 
           }}
         ></div>
       </div>
@@ -35,14 +35,14 @@ export default function Hero() {
       >
         <p 
           className="text-xs md:text-sm font-cormorant tracking-[0.4em] uppercase text-[var(--color-gold-400)] mb-8 md:mb-12"
-          style={{ textShadow: "0 2px 12px rgba(0,0,0,0.45)" }}
+          style={{ textShadow: "0 4px 16px rgba(0,0,0,0.6)" }}
         >
           You are invited
         </p>
 
         <h1 
           className="text-6xl md:text-9xl font-great-vibes text-[var(--color-ivory)] drop-shadow-2xl leading-tight"
-          style={{ textShadow: "0 2px 12px rgba(0,0,0,0.45)" }}
+          style={{ textShadow: "0 4px 24px rgba(0,0,0,0.7)" }}
         >
           {weddingConfig.couple.displayName1}
           <span className="block text-4xl md:text-7xl text-[var(--color-gold-400)] my-4 md:my-6">&</span>
@@ -53,14 +53,14 @@ export default function Hero() {
 
         <p 
           className="text-xl md:text-3xl font-playfair italic text-[var(--color-champagne)] leading-relaxed px-2 drop-shadow-lg"
-          style={{ textShadow: "0 2px 12px rgba(0,0,0,0.45)" }}
+          style={{ textShadow: "0 4px 16px rgba(0,0,0,0.6)" }}
         >
           Request the honor of your presence <br className="hidden md:block" /> at our wedding celebration.
         </p>
       </motion.div>
 
       <motion.div
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center z-20"
+        className="absolute bottom-20 md:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center z-20"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
@@ -72,7 +72,7 @@ export default function Hero() {
       >
         <span 
           className="text-xs tracking-widest uppercase mb-2 font-cormorant text-[var(--color-gold-400)]"
-          style={{ textShadow: "0 2px 12px rgba(0,0,0,0.45)" }}
+          style={{ textShadow: "0 4px 16px rgba(0,0,0,0.6)" }}
         >
           Scroll to discover
         </span>

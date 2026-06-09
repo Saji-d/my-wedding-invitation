@@ -44,16 +44,16 @@ export default function LoveStory() {
                 </div>
               </div>
 
-              <div className={`w-5/12 glass p-6 rounded-2xl relative ${
-                index % 2 === 0 ? "text-right" : "text-left"
-              }`}>
-                <h3 className="text-2xl font-playfair text-[var(--color-burgundy-800)] dark:text-[var(--color-champagne)] mb-2">
+              <div className="w-5/12 glass p-6 rounded-2xl relative flex flex-col items-center md:min-h-[220px]">
+                <h3 className="text-2xl font-playfair text-[var(--color-burgundy-800)] dark:text-[var(--color-champagne)] mb-2 text-center w-full">
                   {item.title}
                 </h3>
-                <span className="inline-block px-3 py-1 bg-[var(--color-gold-400)] text-white text-xs font-cormorant tracking-widest uppercase rounded-full mb-3">
-                  {item.date}
-                </span>
-                <p className="font-cormorant text-lg text-opacity-80">
+                <div className="flex justify-center w-full mb-4">
+                  <span className="inline-block px-3 py-1 bg-[var(--color-gold-400)] text-white text-xs font-cormorant tracking-widest uppercase rounded-full">
+                    {item.date}
+                  </span>
+                </div>
+                <p className="font-cormorant text-lg text-opacity-80 text-left w-full">
                   {item.description}
                 </p>
               </div>
