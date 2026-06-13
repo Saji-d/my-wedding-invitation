@@ -1,97 +1,175 @@
 <div align="center">
 
-# ❤️ Sajid & Dilruba | Wedding Invitation
+# Sajid & Dilruba — Luxury Digital Wedding Invitation 🤵🏻💍👰🏻
 
-[![Live Website](https://img.shields.io/badge/Live_Website-Experience_Here-D4AF37?style=for-the-badge&logo=vercel&logoColor=white)](https://sajid-weds-dilruba.vercel.app/)
+### A cinematic wedding experience crafted with modern web technologies and timeless romance.
 
-A digital celebration of love, commitment, and the beautiful journey ahead.
+<p align="center">
+  <a href="https://sajid-weds-dilruba.vercel.app/">
+    <img src="https://img.shields.io/badge/🌐_Live_Website-Visit_Invitation-D4AF37?style=for-the-badge" />
+  </a>
+  <a href="https://github.com/Saji-d/my-wedding-invitation">
+    <img src="https://img.shields.io/badge/📦_Repository-Open_Source-800020?style=for-the-badge" />
+  </a>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Next.js-16-black?style=flat-square&logo=nextdotjs" />
+  <img src="https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react" />
+  <img src="https://img.shields.io/badge/TypeScript-Ready-3178C6?style=flat-square&logo=typescript" />
+  <img src="https://img.shields.io/badge/TailwindCSS-v4-38BDF8?style=flat-square&logo=tailwindcss" />
+  <img src="https://img.shields.io/badge/Framer_Motion-Animations-FF0055?style=flat-square" />
+  <img src="https://img.shields.io/badge/Deployed_on-Vercel-black?style=flat-square&logo=vercel" />
+</p>
+
+---
+
+### Built for the wedding of
+
+# ❤️ Sajid & Dilruba ❤️
+
+*"Two hearts. One promise. A lifetime ahead."*
 
 </div>
 
 ---
 
-## 💞 Our Story
+# 🌹 About The Project
 
-Every beautiful journey begins with a single step. Our story began with a movie date. Friendship grew naturally through conversations, laughter, and shared moments. As time passed, that friendship slowly became love. A promise led to engagement, uniting our families and drawing our future closer. Now we prepare to begin our forever together, and we are so incredibly grateful to share this journey with you.
+This project is a fully customized luxury wedding invitation website created to celebrate the wedding of **Sajid & Dilruba**.
 
-## 🌸 Why This Website?
+Rather than sending a traditional printed invitation alone, the goal was to create an immersive digital experience where guests could:
 
-This project was built as more than a wedding invitation. It was lovingly created to:
+* Explore our story
+* View wedding details
+* RSVP online
+* Navigate to the venue
+* Enjoy elegant animations
+* Experience a premium luxury aesthetic
 
-- Preserve memories.
-- Tell our story.
-- Share important wedding details.
-- Provide a beautiful RSVP experience.
-- Create something meaningful for family and friends.
-
-Traditional invitation cards inspired the elegant design, while modern web technologies brought it to life.
-
----
-
-## ✨ Features
-
-- **Luxury Animated Landing Page:** A cinematic hero section to welcome our guests.
-- **Interactive Love Story Timeline:** A beautifully crafted, alternating timeline detailing our journey from the first meeting to the wedding day.
-- **Responsive Wedding Countdown:** A dynamic, elegant countdown timer building anticipation for the big day.
-- **RSVP Confirmation System:** A seamless, integrated form for guests to submit their attendance (connected securely via Google Forms).
-- **Venue & Directions Section:** Complete event details with an integrated map direction link.
-- **Wedding Celebration Details:** A clean itinerary of the events.
-- **Memories Gallery:** A curated polaroid-style image stack showcasing our favorite moments.
-- **Elegant Animations:** Smooth scroll reveals and luxurious transitions powered by Framer Motion.
-- **Falling Flower Petals:** A custom, fully responsive ambient petal rainfall effect.
-- **Mobile-First Responsive Design:** Flawless presentation across desktop, tablet, and mobile devices.
-- **Smooth Scrolling Experience:** A highly optimized, immersive user journey.
+The entire website was designed from scratch and optimized for both desktop and mobile devices.
 
 ---
 
+# ✨ Highlights
 
-## 🛠️ Built With
+### 💞 Interactive Love Story
 
-This project leverages a modern web development stack to ensure performance, elegant animations, and a premium user experience:
+A beautifully crafted timeline showcasing the journey from first meeting to forever.
 
-- **[Next.js](https://nextjs.org/)** (v16.2.7) - React Framework
-- **[React](https://react.dev/)** (v19.2.4) - UI Library
-- **[TypeScript](https://www.typescriptlang.org/)** - Static Typing
-- **[Tailwind CSS](https://tailwindcss.com/)** (v4) - Utility-First Styling
-- **[Framer Motion](https://www.framer.com/motion/)** - Declarative Animations & Scroll Reveals
-- **[GSAP](https://gsap.com/)** - Complex Ambient Animations (Petal System)
-- **[Swiper.js](https://swiperjs.com/)** - Interactive Gallery & Sliders
-- **[React Icons](https://react-icons.github.io/react-icons/)** - Scalable Vector Icons
-- **[date-fns](https://date-fns.org/)** - Modern JavaScript Date Utility Library
-- **Google Forms Integration** - Serverless RSVP data collection
-- **Responsive Design Principles** - Mobile, Tablet, and Desktop parity
+### ⏳ Live Wedding Countdown
+
+Real-time countdown building anticipation for the wedding day.
+
+### 📝 RSVP System
+
+Custom RSVP experience connected directly with Google Forms.
+
+### 📍 Venue & Directions
+
+Integrated maps and navigation support for guests.
+
+### 🖼️ Luxury Gallery
+
+Interactive polaroid-style memories gallery powered by Swiper.js.
+
+### 🌸 Ambient Petal Animation
+
+Custom animated flower petals flowing across the entire experience.
+
+### 🎵 Wedding Atmosphere
+
+Elegant transitions, visual effects, and immersive storytelling.
+
+### 📱 Fully Responsive
+
+Optimized for mobile, tablet, laptop, and desktop screens.
 
 ---
 
-## 🚀 Getting Started
+# 🎨 Design Philosophy
 
-To run the project locally on your machine:
+The design follows a **Modern Luxury Wedding Theme**.
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/Saji-d/my-wedding-invitation.git
-   cd my-wedding-invitation
-   ```
+### Color Palette
 
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
+| Color | Purpose |
+|---------|----------|
+| Burgundy (#800020) | Luxury & Romance |
+| Gold (#D4AF37) | Elegance & Celebration |
+| Champagne (#F7E7CE) | Warmth & Softness |
+| Ivory (#FFFFF0) | Clean Contrast |
 
-3. **Start the development server:**
-   ```bash
-   npm run dev
-   ```
+### Typography
 
-   The application will be available at `http://localhost:3000`.
+* Great Vibes
+* Playfair Display
+* Cormorant Garamond
 
-### Production Build
+Together these fonts create a timeless and elegant wedding aesthetic.
 
-To create and start an optimized production build:
-```bash
-npm run build
-npm start
-```
+---
+
+# 🚀 Core Features
+
+✅ Animated Entry Experience
+
+✅ Luxury Hero Section
+
+✅ Love Story Timeline
+
+✅ Interactive Image Gallery
+
+✅ Scratch Card Invitation Reveal
+
+✅ Wedding Countdown
+
+✅ Ceremony Schedule
+
+✅ Venue Information
+
+✅ Google Maps Integration
+
+✅ RSVP Management
+
+✅ Guest Wishes Book
+
+✅ Islamic Blessings
+
+✅ Floating Petal System
+
+✅ Mobile First Design
+
+✅ Smooth Scroll Animations
+
+---
+
+# 🛠 Tech Stack
+
+## Frontend
+
+* Next.js 15
+* React 19
+* TypeScript
+* Tailwind CSS v4
+
+## Animations
+
+* Framer Motion
+* GSAP
+
+## UI Components
+
+* Swiper.js
+* React Icons
+
+## Utilities
+
+* date-fns
+
+## Deployment
+
+* Vercel
 
 ---
 
@@ -125,69 +203,107 @@ src/
 
 ---
 
-## 🎨 Design Philosophy
-
-This application was designed with a strict adherence to a **Modern Luxury Wedding Aesthetic**:
-
-- **Premium Palette:** Rich Burgundy (`#800020`), soft Champagne (`#F7E7CE`), and elegant Gold (`#D4AF37`) accents create a warm, inviting, and sophisticated atmosphere.
-- **Romantic Storytelling:** The flow of the website guides guests naturally from the initial invitation to our shared history, and finally to the celebration details.
-- **Elegant Typography:** A carefully curated font stack utilizing `Great Vibes` for romantic scripts, `Playfair Display` for bold premium headings, and `Cormorant` for classic, readable body text.
-- **Smooth Motion Design:** Cinematic scroll reveals, subtle hover glows, and organic background motion ensure the interface feels alive but never distracting.
-- **User Experience:** Clear call-to-actions, highly readable itineraries, and a frictionless RSVP process prioritize guest convenience.
+The architecture is fully component-based for maintainability and scalability.
 
 ---
 
-## 💌 RSVP Information
+# 📱 Responsive Experience
 
-The RSVP system is entirely serverless and frictionless for the guest. It connects directly to a hidden Google Form.
+The invitation was designed using a mobile-first philosophy.
 
-1. Guests fill out their Name, Phone Number, and Attendance Status (Accept/Decline).
-2. The custom React component bypasses the default Google Form UI, sending a `POST` request silently in the background.
-3. Upon success, guests are presented with an elegant, glowing confirmation or decline message, while the couple receives the data instantly in a connected Google Sheet.
+### Mobile
 
----
+* Optimized typography
+* Swipe gestures
+* Faster loading
 
-## 📱 Responsive Experience
+### Tablet
 
-The invitation was developed with a mobile-first approach, recognizing that the majority of guests will view the site on their phones:
+* Balanced spacing
+* Enhanced layouts
 
-- **Mobile:** Elements stack gracefully, typography scales for legibility, and images maintain perfect landscape aspect ratios. The interactive gallery leverages touch-swipe gestures.
-- **Tablet:** Adjusted grid layouts to maximize the use of medium-width screens.
-- **Desktop:** Expands into a cinematic, immersive experience. The timeline utilizes an alternating left/right layout, and background elements span the full width to create a breathtaking presentation.
+### Desktop
 
----
-
-## 🌸 Special Touches
-
-- **Ambient Petal Animation:** A completely custom GSAP-driven particle system creates a gentle, continuous rainfall of cherry blossoms across all sections, enhancing the romantic atmosphere without impacting performance.
-- **Ceremonial Shower:** A brief, celebratory burst of petals triggers when guests "Enter" the invitation.
-- **Dynamic Countdown:** A highly stylized, animated countdown frame that ticks down in real-time to the wedding day.
-- **Interactive Love Story:** A scroll-driven cinematic timeline that reveals images and quotes as the guest navigates downward.
-- **Custom RSVP Glow:** The submission button features an animated, continuous conic-gradient border, providing a premium interactive detail.
+* Cinematic presentation
+* Full-width luxury experience
+* Advanced animations
 
 ---
 
-## 🤍 From the Couple
+# 🌸 Signature Features
 
-To our dearest family and friends, your unwavering love and support have been the greatest gifts in our lives. We are so incredibly excited to share this momentous occasion with you. Thank you for being part of our journey. 
+### Petal Rain System
 
-This website stands as a celebration of both our love for one another and the technology that helped us share it with the world. We cannot wait to celebrate our union, create beautiful new memories, and begin our forever together. See you there!
+A custom floating petal animation built specifically for this project.
 
-With love and gratitude,  
-**Sajid & Dilruba**
+### Ceremony Petal Burst
+
+A special celebration effect triggered when guests enter the invitation.
+
+### Luxury Countdown
+
+An elegant countdown design synchronized to the wedding date.
+
+### Interactive Storytelling
+
+Smooth reveal animations guide visitors naturally through the invitation.
 
 ---
 
-## 👨‍💻 Technical Notes
+# 💌 RSVP Flow
 
-- **Performance Optimization:** Images leverage Next.js `<Image />` for automatic WebP/AVIF conversion, lazy loading, and caching. Background animations use CSS transforms (`will-change: transform`) and GSAP for hardware-accelerated 60fps rendering.
-- **Component-Based Architecture:** Every distinct section of the site is modularized, allowing for easy updates and maintenance within `src/components/sections/`.
-- **Centralized Configuration:** All critical data (names, dates, locations, form links) is managed from a single source of truth (`src/config/wedding.ts`), ensuring content updates do not require digging into React components.
+The RSVP system works seamlessly:
+
+1. Guest enters their information
+2. Custom form validates data
+3. Submission is sent directly to Google Forms
+4. Response is stored automatically in Google Sheets
+5. Guest receives instant confirmation
+
+No backend server required.
 
 ---
 
-## 📜 License
+# ❤️ A Personal Note
 
-This is a personal project created exclusively for the wedding celebration of Sajid & Dilruba.
+To our beloved family and friends,
 
-*Not intended for commercial redistribution or uncredited templating.*
+Thank you for your love, support, prayers, and blessings throughout our journey.
+
+This website was created not only as an invitation but also as a memory we can cherish forever.
+
+We cannot wait to celebrate this beautiful day with all of you and begin the next chapter of our lives together.
+
+**With Love,**
+
+### Sajid & Dilruba
+
+---
+
+# 🔗 Links
+
+### 🌐 Live Website
+
+https://sajid-weds-dilruba.vercel.app/
+
+### 📦 Repository
+
+https://github.com/Saji-d/my-wedding-invitation
+
+### 🎉 Formal Family Edition
+
+Repository:
+https://github.com/Saji-d/formal-wedding-invitation
+
+Live Website:
+https://sajid-dilruba-wedding-invitation.vercel.app/
+
+---
+
+<div align="center">
+
+### ✨ Crafted with Love, Code & Countless Cups of Coffee ☕
+
+**© 2026 Sajid & Dilruba Wedding Invitation**
+
+</div>
