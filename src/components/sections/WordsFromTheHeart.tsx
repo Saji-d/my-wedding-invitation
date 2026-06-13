@@ -5,85 +5,95 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 
 const quotes = [
-  "Every love story is beautiful, but ours is my favorite.",
-  "In all the world, there is no heart for me like yours.",
-  "You are my today and all of my tomorrows.",
-  "I look at you and see the rest of my life in front of my eyes.",
-  "The best thing to hold onto in life is each other.",
-  "You are my safe place and my sweetest comfort.",
-  "I still fall for you every single day.",
-  "Forever isn't long enough when I'm with you.",
-  "You are the chapter I never want to end.",
-  "Every moment with you feels like a beautiful beginning.",
+
+  "Some souls are destined to find their way together.",
+  "Love grows strongest through faith and kindness.",
+  "The finest journeys in life are shared hand in hand.",
+  "Every chapter shines brighter with love.",
+  "A beautiful beginning to a lifetime of memories.",
+  "Little moments create the greatest memories.",
+  "Two hearts united with countless blessings ahead."
+
 ];
 
 export default function WordsFromTheHeart() {
   const [index, setIndex] = useState(0);
 
+  // Auto-rotation with manual reset logic
   useEffect(() => {
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % quotes.length);
-    }, 4500);
+    }, 5000);
+    
+    // Clearing the interval on every index change effectively "restarts" the timer
     return () => clearInterval(timer);
-  }, []);
+  }, [index]);
+
+  const handleDotClick = (i: number) => {
+    setIndex(i);
+  };
 
   return (
-    <section className="relative h-[45vh] min-h-[350px] flex flex-col items-center justify-center overflow-hidden bg-[var(--color-burgundy-900)] px-6 py-12 border-y border-[var(--color-gold-400)]/20">
+    <section className="relative h-[45vh] min-h-[350px] flex flex-col items-center justify-center overflow-hidden bg-[var(--color-burgundy-900)] border-y border-[var(--color-gold-400)]/20">
       {/* Background Decorative Elements */}
       <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
         <div className="absolute top-10 left-10 w-32 h-32 rounded-full border border-[var(--color-gold-400)] blur-2xl"></div>
         <div className="absolute bottom-10 right-10 w-48 h-48 rounded-full border border-[var(--color-gold-400)] blur-3xl"></div>
       </div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1 }}
-        className="text-center z-10 w-full max-w-4xl mx-auto flex flex-col items-center"
-      >
-        <h2 className="text-3xl md:text-4xl font-great-vibes text-[var(--color-gold-400)] mb-8 tracking-wider">
+      <div className="max-w-5xl mx-auto relative z-10 flex flex-col items-center text-center w-full px-4">
+        {/* Section Title - Increased size and elegant gap */}
+        <motion.h2 
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+          className="text-xl md:text-2xl font-playfair italic font-medium text-[var(--color-gold-400)] mb-8 md:mb-10 tracking-[0.2em] uppercase"
+        >
           Words From The Heart
-        </h2>
+        </motion.h2>
 
-        <div className="relative w-full flex flex-col items-center">
-          <FaQuoteLeft className="text-[var(--color-gold-400)]/30 text-4xl md:text-5xl absolute -top-10 -left-2 md:-left-8" />
+        {/* Quote Container with FIXED Quotation Marks */}
+        <div className="relative w-full max-w-[320px] sm:max-w-lg md:max-w-2xl flex flex-col items-center">
+          <FaQuoteLeft className="text-[var(--color-gold-400)]/20 text-[10px] md:text-xs absolute -top-4 left-0 md:left-4" />
           
-          <div className="h-32 md:h-40 flex items-center justify-center w-full px-4">
+          <div className="w-full flex items-center justify-center min-h-[60px] md:min-h-[80px] px-8">
             <AnimatePresence mode="wait">
               <motion.p
                 key={index}
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 1.05 }}
-                transition={{ duration: 0.8, ease: "easeInOut" }}
-                className="text-2xl md:text-4xl lg:text-5xl font-great-vibes text-[var(--color-ivory)] text-center leading-relaxed drop-shadow-lg"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.6, ease: "easeInOut" }}
+                className="text-lg md:text-xl lg:text-2xl font-playfair text-[var(--color-champagne)] text-center lg:whitespace-nowrap leading-relaxed tracking-wide"
               >
-                {quotes[index]}
+                "{quotes[index]}"
               </motion.p>
             </AnimatePresence>
           </div>
 
-          <FaQuoteRight className="text-[var(--color-gold-400)]/30 text-4xl md:text-5xl absolute -bottom-10 -right-2 md:-right-8" />
+          <FaQuoteRight className="text-[var(--color-gold-400)]/20 text-[10px] md:text-xs absolute -bottom-4 right-0 md:right-4" />
         </div>
 
-        {/* Carousel Indicators */}
-        <div className="flex gap-2 mt-12">
+        {/* Interactive Carousel Indicators */}
+        <div className="flex gap-2.5 mt-8 md:mt-10 justify-center">
           {quotes.map((_, i) => (
             <button
               key={i}
-              onClick={() => setIndex(i)}
-              className={`h-1.5 transition-all duration-500 rounded-full ${
-                i === index ? "w-8 bg-[var(--color-gold-400)]" : "w-2 bg-[var(--color-gold-400)]/30"
+              onClick={() => handleDotClick(i)}
+              className={`w-1 h-1 rounded-full cursor-pointer transition-all duration-300 hover:scale-125 ${
+                i === index 
+                  ? "bg-[var(--color-gold-400)] scale-125" 
+                  : "bg-[var(--color-gold-400)]/30 hover:bg-[var(--color-gold-400)]/60"
               }`}
               aria-label={`Go to quote ${i + 1}`}
             />
           ))}
         </div>
-      </motion.div>
+      </div>
 
       {/* Luxury Border Accent */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/3 h-[1px] bg-gradient-to-r from-transparent via-[var(--color-gold-400)]/50 to-transparent"></div>
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/3 h-[1px] bg-gradient-to-r from-transparent via-[var(--color-gold-400)]/40 to-transparent"></div>
     </section>
   );
 }
