@@ -5,6 +5,7 @@ import OpeningScreen from "@/components/sections/OpeningScreen";
 import BackgroundEffects from "@/components/layout/BackgroundEffects";
 import MusicPlayer from "@/components/ui/MusicPlayer";
 import Hero from "@/components/sections/Hero";
+import WordsFromTheHeart from "@/components/sections/WordsFromTheHeart";
 import LoveStory from "@/components/sections/LoveStory";
 import Events from "@/components/sections/Events";
 import Countdown from "@/components/sections/Countdown";
@@ -54,6 +55,7 @@ export default function Home() {
           <BackgroundEffects />
           
           <Hero />
+          <WordsFromTheHeart />
           <IslamicBlessing />
           <ScratchCard />
           <Countdown />
