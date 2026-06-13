@@ -2,12 +2,107 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import confetti from "canvas-confetti";
 
 export default function ScratchCard() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [isRevealed, setIsRevealed] = useState(false);
   const [isScratching, setIsScratching] = useState(false);
   const lastPoint = useRef<{ x: number, y: number } | null>(null);
+
+  // Trigger celebration when revealed
+  useEffect(() => {
+    if (isRevealed) {
+      triggerCelebration();
+    }
+  }, [isRevealed]);
+
+  const triggerCelebration = () => {
+    const duration = 5 * 1000;
+    const animationEnd = Date.now() + duration;
+    
+    // Luxury Palette
+    const gold = "#D4AF37";
+    const champagne = "#F7E7CE";
+    const burgundy = "#800020";
+    const darkGold = "#AA7C11";
+    const colors = [gold, champagne, burgundy, darkGold];
+
+    const randomInRange = (min: number, max: number) => Math.random() * (max - min) + min;
+
+    // 1. Initial Grand Entrance (Side Fireworks)
+    const fireSideBursts = () => {
+      confetti({
+        particleCount: 70,
+        angle: 60,
+        spread: 55,
+        origin: { x: 0, y: 0.8 },
+        colors: colors,
+        startVelocity: 65,
+        gravity: 0.8,
+        scalar: 1.2,
+        zIndex: 100,
+      });
+      confetti({
+        particleCount: 70,
+        angle: 120,
+        spread: 55,
+        origin: { x: 1, y: 0.8 },
+        colors: colors,
+        startVelocity: 65,
+        gravity: 0.8,
+        scalar: 1.2,
+        zIndex: 100,
+      });
+    };
+
+    // 2. Elegant Golden Fireworks (Top Area)
+    const fireworkInterval: any = setInterval(() => {
+      const timeLeft = animationEnd - Date.now();
+
+      if (timeLeft <= 0) {
+        return clearInterval(fireworkInterval);
+      }
+
+      const particleCount = 40 * (timeLeft / duration);
+      
+      confetti({
+        particleCount,
+        startVelocity: 30,
+        spread: 360,
+        ticks: 120,
+        origin: { 
+          x: randomInRange(0.1, 0.9), 
+          y: randomInRange(0.1, 0.4) 
+        },
+        colors: [gold, champagne, darkGold], // Pure metal colors for fireworks
+        zIndex: 100,
+        scalar: randomInRange(0.6, 0.9),
+        drift: randomInRange(-0.5, 0.5),
+        gravity: 0.7,
+      });
+    }, 400);
+
+    // 3. Delicate Sparkle Shower (Burgundy Accents)
+    const fireCentralShower = () => {
+      confetti({
+        particleCount: 120,
+        spread: 160,
+        origin: { y: 0.6 },
+        colors: [burgundy, gold, champagne],
+        gravity: 0.6,
+        ticks: 200,
+        scalar: 0.8,
+        zIndex: 100,
+      });
+    };
+
+    // Execution Sequence
+    fireSideBursts();
+    setTimeout(fireCentralShower, 1000);
+    setTimeout(fireSideBursts, 2000); // Second wave of side bursts
+    setTimeout(fireCentralShower, 3500); // Final gentle shower
+  };
 
   useEffect(() => {
     initCanvas();
