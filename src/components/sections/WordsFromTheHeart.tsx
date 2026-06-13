@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 
 const quotes = [
-
   "Some souls are destined to find their way together.",
   "Love grows strongest through faith and kindness.",
   "The finest journeys in life are shared hand in hand.",
@@ -13,7 +12,6 @@ const quotes = [
   "A beautiful beginning to a lifetime of memories.",
   "Little moments create the greatest memories.",
   "Two hearts united with countless blessings ahead."
-
 ];
 
 export default function WordsFromTheHeart() {
@@ -23,7 +21,7 @@ export default function WordsFromTheHeart() {
   useEffect(() => {
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % quotes.length);
-    }, 5000);
+    }, 4000);
     
     // Clearing the interval on every index change effectively "restarts" the timer
     return () => clearInterval(timer);
@@ -67,7 +65,7 @@ export default function WordsFromTheHeart() {
                 transition={{ duration: 0.6, ease: "easeInOut" }}
                 className="text-lg md:text-xl lg:text-2xl font-playfair text-[var(--color-champagne)] text-center lg:whitespace-nowrap leading-relaxed tracking-wide"
               >
-                "{quotes[index]}"
+                {quotes[index]}
               </motion.p>
             </AnimatePresence>
           </div>
