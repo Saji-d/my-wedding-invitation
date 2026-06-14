@@ -1,6 +1,7 @@
 <div align="center">
 
-# Sajid & Dilruba — Luxury Digital Wedding Invitation 🤵🏻💍👰🏻
+# Sajid & Dilruba — Luxury Digital Wedding Invitation 
+🤵🏻💍👰🏻
 
 ### A cinematic wedding experience crafted with modern web technologies and timeless romance.
 

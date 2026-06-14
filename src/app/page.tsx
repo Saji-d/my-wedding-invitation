@@ -78,7 +78,7 @@ export default function Home() {
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.5, y: 20 }}
                 onClick={scrollToTop}
-                className="fixed bottom-10 right-6 z-50 p-4 rounded-full glass bg-[var(--color-burgundy-900)] text-[var(--color-gold-400)] shadow-2xl hover:bg-[var(--color-burgundy-800)] transition-all duration-300 border border-[var(--color-gold-400)]/30 group"
+                className="fixed bottom-20 right-6 z-50 p-4 rounded-full glass bg-[var(--color-burgundy-900)] text-[var(--color-gold-400)] shadow-2xl hover:bg-[var(--color-burgundy-800)] transition-all duration-300 border border-[var(--color-gold-400)]/30 group"
                 aria-label="Scroll to top"
               >
                 <HiArrowUp className="w-5 h-5 group-hover:-translate-y-1 transition-transform" />

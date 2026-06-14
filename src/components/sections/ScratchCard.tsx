@@ -18,7 +18,7 @@ export default function ScratchCard() {
   }, [isRevealed]);
 
   const triggerCelebration = () => {
-    const duration = 5 * 1000;
+    const duration = 4 * 1000;
     const animationEnd = Date.now() + duration;
     
     // Luxury Palette
@@ -30,78 +30,87 @@ export default function ScratchCard() {
 
     const randomInRange = (min: number, max: number) => Math.random() * (max - min) + min;
 
-    // 1. Initial Grand Entrance (Side Fireworks)
+    // 1. Initial Side Fireworks (0.2s launch, 0.5s explosion feel)
     const fireSideBursts = () => {
+      // Left side
       confetti({
-        particleCount: 70,
+        particleCount: 60,
         angle: 60,
         spread: 55,
         origin: { x: 0, y: 0.8 },
         colors: colors,
-        startVelocity: 65,
-        gravity: 0.8,
+        startVelocity: 70,
+        gravity: 1.2,
         scalar: 1.2,
         zIndex: 100,
       });
+      // Right side
       confetti({
-        particleCount: 70,
+        particleCount: 60,
         angle: 120,
         spread: 55,
         origin: { x: 1, y: 0.8 },
         colors: colors,
-        startVelocity: 65,
-        gravity: 0.8,
+        startVelocity: 70,
+        gravity: 1.2,
         scalar: 1.2,
         zIndex: 100,
       });
     };
 
-    // 2. Elegant Golden Fireworks (Top Area)
-    const fireworkInterval: any = setInterval(() => {
-      const timeLeft = animationEnd - Date.now();
+    // 2. Elegant Golden Fireworks (Top Area - 0.5s onwards)
+    const fireGoldenFireworks = () => {
+      const interval: any = setInterval(() => {
+        const timeLeft = animationEnd - Date.now();
 
-      if (timeLeft <= 0) {
-        return clearInterval(fireworkInterval);
-      }
+        if (timeLeft <= 0) {
+          return clearInterval(interval);
+        }
 
-      const particleCount = 40 * (timeLeft / duration);
-      
+        confetti({
+          particleCount: 40,
+          startVelocity: 30,
+          spread: 360,
+          ticks: 100,
+          origin: { 
+            x: randomInRange(0.1, 0.9), 
+            y: randomInRange(0.1, 0.4) 
+          },
+          colors: [gold, champagne, darkGold],
+          zIndex: 100,
+          scalar: randomInRange(0.6, 1),
+          gravity: 0.8,
+        });
+      }, 600);
+    };
+
+    // 3. Subtle celebration particles around the revealed date (1s)
+    const fireCenterSparkles = () => {
       confetti({
-        particleCount,
-        startVelocity: 30,
-        spread: 360,
-        ticks: 120,
-        origin: { 
-          x: randomInRange(0.1, 0.9), 
-          y: randomInRange(0.1, 0.4) 
-        },
-        colors: [gold, champagne, darkGold], // Pure metal colors for fireworks
-        zIndex: 100,
-        scalar: randomInRange(0.6, 0.9),
-        drift: randomInRange(-0.5, 0.5),
-        gravity: 0.7,
-      });
-    }, 400);
-
-    // 3. Delicate Sparkle Shower (Burgundy Accents)
-    const fireCentralShower = () => {
-      confetti({
-        particleCount: 120,
+        particleCount: 150,
         spread: 160,
-        origin: { y: 0.6 },
-        colors: [burgundy, gold, champagne],
-        gravity: 0.6,
+        origin: { y: 0.5, x: 0.5 },
+        colors: [gold, champagne, burgundy],
+        gravity: 0.7,
         ticks: 200,
-        scalar: 0.8,
+        scalar: 0.9,
         zIndex: 100,
+        startVelocity: 35,
       });
     };
 
-    // Execution Sequence
-    fireSideBursts();
-    setTimeout(fireCentralShower, 1000);
-    setTimeout(fireSideBursts, 2000); // Second wave of side bursts
-    setTimeout(fireCentralShower, 3500); // Final gentle shower
+    // Execution Sequence per requirements
+    // 0.2s: Side fireworks launch
+    setTimeout(fireSideBursts, 200);
+    
+    // 0.5s: Golden fireworks start in top area
+    setTimeout(fireGoldenFireworks, 500);
+    
+    // 1.0s: Confetti and sparkles appear from center
+    setTimeout(fireCenterSparkles, 1000);
+
+    // Final elegant burst
+    setTimeout(fireSideBursts, 2500);
   };
 
   useEffect(() => {
@@ -134,18 +143,18 @@ export default function ScratchCard() {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     // Subtle luxury texture
-    ctx.globalAlpha = 0.1;
-    for (let i = 0; i < 400; i++) {
+    ctx.globalAlpha = 0.15;
+    for (let i = 0; i < 500; i++) {
         ctx.fillStyle = Math.random() > 0.5 ? "#fff" : "#000";
         ctx.beginPath();
-        ctx.arc(Math.random() * canvas.width, Math.random() * canvas.height, 0.5, 0, Math.PI * 2);
+        ctx.arc(Math.random() * canvas.width, Math.random() * canvas.height, 0.7, 0, Math.PI * 2);
         ctx.fill();
     }
     ctx.globalAlpha = 1.0;
 
     // Elegant text overlay
-    ctx.font = "italic 20px serif";
-    ctx.fillStyle = "rgba(128, 0, 32, 0.5)";
+    ctx.font = "italic 22px serif";
+    ctx.fillStyle = "rgba(128, 0, 32, 0.6)";
     ctx.textAlign = "center";
     ctx.fillText("Scratch to Reveal our Special Day", canvas.width / 2, canvas.height / 2 + 10);
   };
@@ -187,7 +196,7 @@ export default function ScratchCard() {
     const pixels = imageData.data;
     let transparent = 0;
 
-    for (let i = 0; i < pixels.length; i += 100) { // Check every 25th pixel
+    for (let i = 0; i < pixels.length; i += 100) { 
       if (pixels[i + 3] === 0) {
         transparent++;
       }
@@ -195,8 +204,8 @@ export default function ScratchCard() {
 
     const percent = (transparent / (pixels.length / 100)) * 100;
     
-    // Reveal threshold: 40%
-    if (percent > 40) {
+    // Reveal threshold: 45% for a better experience
+    if (percent > 45) {
       setIsRevealed(true);
     }
   };
@@ -241,20 +250,43 @@ export default function ScratchCard() {
 
         <div className="relative w-full max-w-xl mx-auto aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl border-[4px] border-[var(--color-gold-400)] glass group">
           {/* Revealed Date Content */}
-          <div className="absolute inset-0 flex items-center justify-center bg-[var(--color-burgundy-900)] text-[var(--color-champagne)]">
-            <div className="flex items-center justify-center divide-x divide-[var(--color-gold-500)]/30 w-full px-6">
-              <div className="flex-1 flex flex-col items-center">
+          <div className="absolute inset-0 flex items-center justify-center bg-[var(--color-burgundy-900)] text-[var(--color-champagne)] overflow-hidden">
+            {/* Animated Shine Effect */}
+            <motion.div
+              initial={{ x: "-100%" }}
+              animate={isRevealed ? { x: "200%" } : { x: "-100%" }}
+              transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+              className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-[-25deg] pointer-events-none"
+            />
+            
+            <div className="flex items-center justify-center divide-x divide-[var(--color-gold-500)]/30 w-full px-6 relative z-10">
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={isRevealed ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="flex-1 flex flex-col items-center"
+              >
                 <span className="text-[10px] uppercase tracking-[0.3em] text-[var(--color-gold-400)] mb-1">Day</span>
                 <span className="text-4xl md:text-6xl font-playfair font-bold">17</span>
-              </div>
-              <div className="flex-1 flex flex-col items-center px-4">
+              </motion.div>
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={isRevealed ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="flex-1 flex flex-col items-center px-4"
+              >
                 <span className="text-[10px] uppercase tracking-[0.3em] text-[var(--color-gold-400)] mb-1">Month</span>
                 <span className="text-4xl md:text-6xl font-playfair font-bold">JULY</span>
-              </div>
-              <div className="flex-1 flex flex-col items-center">
+              </motion.div>
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={isRevealed ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.5, delay: 0.6 }}
+                className="flex-1 flex flex-col items-center"
+              >
                 <span className="text-[10px] uppercase tracking-[0.3em] text-[var(--color-gold-400)] mb-1">Year</span>
                 <span className="text-4xl md:text-6xl font-playfair font-bold">2026</span>
-              </div>
+              </motion.div>
             </div>
           </div>
 
@@ -263,8 +295,8 @@ export default function ScratchCard() {
             {!isRevealed && (
               <motion.canvas
                 ref={canvasRef}
-                exit={{ opacity: 0, scale: 1.1, filter: "blur(10px)" }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
+                exit={{ opacity: 0, scale: 1.1, filter: "blur(20px)" }}
+                transition={{ duration: 1, ease: "easeInOut" }}
                 className="absolute inset-0 z-10 touch-none cursor-pointer"
                 onPointerDown={handlePointerDown}
                 onPointerMove={handlePointerMove}
@@ -274,8 +306,6 @@ export default function ScratchCard() {
             )}
           </AnimatePresence>
         </div>
-        
-
       </div>
     </section>
   );
