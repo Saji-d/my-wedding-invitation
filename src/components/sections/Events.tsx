@@ -93,7 +93,7 @@ export default function Events() {
                 
                 <div className="flex items-center gap-4 text-xl md:text-2xl font-playfair font-medium tracking-wide text-gray-700 dark:text-gray-300">
                   <HiOutlineClock className="text-[var(--color-gold-500)] w-6 h-6" />
-                  <span>1:30 PM onwards</span>
+                  <span>7:00 PM onwards</span>
                 </div>
 
                 <div className="flex flex-col items-center max-w-md mt-4">
@@ -116,7 +116,7 @@ export default function Events() {
 
               <div className="mt-6 pt-5 border-t border-[var(--color-gold-400)]/20">
                 <p className="font-playfair italic text-[var(--color-gold-500)] text-[0.88rem] sm:text-base md:text-lg whitespace-nowrap">
-                  Lunch will be served following the ceremony
+                  Dinner will be served following the ceremony
                 </p>
               </div>
             </motion.div>
