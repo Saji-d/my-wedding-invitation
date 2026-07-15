@@ -283,25 +283,38 @@ We cannot wait to celebrate this beautiful day with all of you and begin the nex
 
 # 🔗 Links
 
-### 🌐 Live Website
-
-https://sajid-weds-dilruba.vercel.app/
-
-### 📦 Repository
+## 💖 Luxury Wedding Invitation
 
 https://github.com/Saji-d/my-wedding-invitation
 
-### 🎉 Formal Family Edition
+Live Website
 
-Repository:
+https://sajid-weds-dilruba.vercel.app/
+
+---
+
+## 🤍 Formal Wedding Invitation
+
 https://github.com/Saji-d/formal-wedding-invitation
 
-Live Website:
+Live Website
+
 https://sajid-dilruba-wedding-invitation.vercel.app/
 
 ---
 
+## 🎉 Reception Invitation
+
+https://github.com/Saji-d/sajid-dilruba-reception
+
+Live Website
+
+https://sajid-dilruba-reception.vercel.app/
+
+---
+
 <div align="center">
+
 
 ### ✨ Crafted with Love, Code & Countless Cups of Coffee ☕
 
