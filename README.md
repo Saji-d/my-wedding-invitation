@@ -16,7 +16,7 @@
   <img src="https://img.shields.io/badge/Vercel-deployed-0B0E1A?style=flat-square&logo=vercel&logoColor=8b7cf6" alt="Vercel">
 
   <p>
-    <a href="#-overview">Overview</a> · <a href="#-highlights">Highlights</a> · <a href="#-preview">Preview</a> · <a href="#-architecture">Architecture</a> · <a href="#-tech-stack">Tech Stack</a> · <a href="#-getting-started">Getting Started</a> · <a href="#-project-structure">Structure</a> · <a href="#-roadmap">Roadmap</a> · <a href="#-author">Author</a>
+    <a href="#-overview">Overview</a> · <a href="#-highlights">Highlights</a> · <a href="#-preview">Preview</a> · <a href="#-architecture">Architecture</a> · <a href="#-tech-stack">Tech Stack</a> · <a href="#-getting-started">Getting Started</a> · <a href="#-project-structure">Structure</a> · <a href="#-author">Author</a>
   </p>
 </div>
 
@@ -117,8 +117,10 @@ No environment variables are needed. To adapt it, edit `src/config/wedding.ts` (
 
 ## ◈ Project Structure
 
+`src/` holds the Next.js app, its page sections and the wedding config, and `public/` the gallery images and music.
+
 <details>
-<summary>Show tree</summary>
+<summary>Open the folder map</summary>
 
 ```text
 src/
@@ -139,20 +141,15 @@ public/
 
 <img src="assets/divider.svg" alt="" width="100%">
 
-## ◈ Roadmap
-
-- [x] Animated entry, hero, countdown, gallery and love story
-- [x] RSVP and guest wishes through Google Forms
-- [ ] Remove unused dependencies (mapbox-gl, EmailJS and GSAP are installed but not imported)
-- [ ] Move contact details out of the public config file
-- [ ] Optional light and dark theme toggle
-
-<img src="assets/divider.svg" alt="" width="100%">
-
 ## ◈ Author
 
-**Sajidur Rahman Sajid** - Full-Stack Developer and AI engineer, Dhaka.
+**Sajidur Rahman Sajid**: Full-Stack Developer and AI engineer from Dhaka.
 
-[Portfolio](https://www.sajidur.me) · [LinkedIn](https://www.linkedin.com/in/sajidur-rahman-sajid/) · [GitHub](https://github.com/Saji-d) · [Email](mailto:sajidsajidurrahman99@gmail.com)
+<p>
+  <a href="https://www.sajidur.me"><img src="https://img.shields.io/badge/Portfolio-0B0E1A?style=flat-square&logo=googlechrome&logoColor=9B8CFA" alt="Portfolio"></a>
+  <a href="https://www.linkedin.com/in/sajidur-rahman-sajid/"><img src="https://img.shields.io/badge/LinkedIn-0B0E1A?style=flat-square&logo=linkedin&logoColor=8B7CF6" alt="LinkedIn"></a>
+  <a href="https://github.com/Saji-d"><img src="https://img.shields.io/badge/GitHub-0B0E1A?style=flat-square&logo=github&logoColor=EEF0FA" alt="GitHub"></a>
+  <a href="mailto:sajidsajidurrahman99@gmail.com"><img src="https://img.shields.io/badge/Email-0B0E1A?style=flat-square&logo=gmail&logoColor=9B8CFA" alt="Email"></a>
+</p>
 
 <sub>Built with love for a very special day.</sub>
