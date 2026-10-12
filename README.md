@@ -1,323 +1,158 @@
 <div align="center">
+  <img src="assets/banner.svg" alt="my-wedding-invitation banner" width="100%">
 
-# Sajid & Dilruba — Luxury Digital Wedding Invitation   
-### 🤵🏻💍👰🏻
+  <p><code>A cinematic, mobile-first digital wedding invitation with RSVP, live countdown, polaroid gallery and love story.</code></p>
 
-### A cinematic wedding experience crafted with modern web technologies and timeless romance.
+  <a href="https://sajid-weds-dilruba.vercel.app"><img src="https://img.shields.io/badge/LIVE_DEMO-sajid--weds--dilruba.vercel.app-6366f1?style=for-the-badge&labelColor=0B0E1A&logo=vercel&logoColor=8b7cf6" alt="Live demo"></a>
+  <a href="https://github.com/Saji-d/my-wedding-invitation"><img src="https://img.shields.io/badge/SOURCE-GitHub-8b7cf6?style=for-the-badge&labelColor=0B0E1A&logo=github&logoColor=8b7cf6" alt="Source"></a>
+  <img src="https://img.shields.io/badge/STATUS-LIVE-fb7185?style=for-the-badge&labelColor=0B0E1A" alt="Status live">
+  <br>
+  <img src="https://img.shields.io/badge/Next.js-16-0B0E1A?style=flat-square&logo=nextdotjs&logoColor=8b7cf6" alt="Next.js">
+  <img src="https://img.shields.io/badge/React-19-0B0E1A?style=flat-square&logo=react&logoColor=8b7cf6" alt="React">
+  <img src="https://img.shields.io/badge/TypeScript-5-0B0E1A?style=flat-square&logo=typescript&logoColor=8b7cf6" alt="TypeScript">
+  <img src="https://img.shields.io/badge/Tailwind_CSS-4-0B0E1A?style=flat-square&logo=tailwindcss&logoColor=8b7cf6" alt="Tailwind CSS">
+  <img src="https://img.shields.io/badge/Framer_Motion-12-0B0E1A?style=flat-square&logo=framer&logoColor=8b7cf6" alt="Framer Motion">
+  <img src="https://img.shields.io/badge/Swiper-12-0B0E1A?style=flat-square&logo=swiper&logoColor=8b7cf6" alt="Swiper">
+  <img src="https://img.shields.io/badge/Vercel-deployed-0B0E1A?style=flat-square&logo=vercel&logoColor=8b7cf6" alt="Vercel">
 
-<p align="center">
-  <a href="https://sajid-weds-dilruba.vercel.app/">
-    <img src="https://img.shields.io/badge/🌐_Live_Website-Visit_Invitation-D4AF37?style=for-the-badge" />
-  </a>
-  <a href="https://github.com/Saji-d/my-wedding-invitation">
-    <img src="https://img.shields.io/badge/📦_Repository-Open_Source-800020?style=for-the-badge" />
-  </a>
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Next.js-16-black?style=flat-square&logo=nextdotjs" />
-  <img src="https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react" />
-  <img src="https://img.shields.io/badge/TypeScript-Ready-3178C6?style=flat-square&logo=typescript" />
-  <img src="https://img.shields.io/badge/TailwindCSS-v4-38BDF8?style=flat-square&logo=tailwindcss" />
-  <img src="https://img.shields.io/badge/Framer_Motion-Animations-FF0055?style=flat-square" />
-  <img src="https://img.shields.io/badge/Deployed_on-Vercel-black?style=flat-square&logo=vercel" />
-</p>
-
----
-
-### Built for the wedding of
-
-# ❤️ Sajid & Dilruba ❤️
-
-*"Two hearts. One promise. A lifetime ahead."*
-
+  <p>
+    <a href="#-overview">Overview</a> · <a href="#-highlights">Highlights</a> · <a href="#-preview">Preview</a> · <a href="#-architecture">Architecture</a> · <a href="#-tech-stack">Tech Stack</a> · <a href="#-getting-started">Getting Started</a> · <a href="#-project-structure">Structure</a> · <a href="#-roadmap">Roadmap</a> · <a href="#-author">Author</a>
+  </p>
 </div>
 
----
+<img src="assets/divider.svg" alt="" width="100%">
 
-# 🌹 About The Project
+## ◈ Overview
 
-This project is a fully customized luxury wedding invitation website created to celebrate the wedding of **Sajid & Dilruba**.
+A personal project: the digital invitation for the wedding of Sajid and Dilruba. Instead of a static card, guests open an animated experience that tells the couple's story, shows the schedule, counts down to the day and lets them reply from their phone.
 
-Rather than sending a traditional printed invitation alone, the goal was to create an immersive digital experience where guests could:
+It is a single-page Next.js app. All the content (names, date, venue link, timeline, gallery captions, quotes, form field ids) lives in one typed config file, so the whole invitation can be re-skinned for another event without touching the components.
 
-* Explore our story
-* View wedding details
-* RSVP online
-* Navigate to the venue
-* Enjoy elegant animations
-* Experience a premium luxury aesthetic
+<img src="assets/divider.svg" alt="" width="100%">
 
-The entire website was designed from scratch and optimized for both desktop and mobile devices.
+## ◈ Highlights
 
----
+<table>
+  <tr>
+    <td width="33%"><b>Cinematic entry</b><br>An opening screen with a tap to enter, which also starts the background music.</td>
+    <td width="33%"><b>Live countdown</b><br>Days, hours, minutes and seconds to the ceremony, computed with date-fns.</td>
+    <td width="33%"><b>Polaroid gallery</b><br>A Swiper card-stack gallery with autoplay, keyboard control and captions.</td>
+  </tr>
+  <tr>
+    <td><b>Love story timeline</b><br>Six milestones from the first date to the wedding day, with photos.</td>
+    <td><b>RSVP and guest wishes</b><br>Forms post straight to Google Forms, so replies land in a sheet with no backend. Confetti on acceptance.</td>
+    <td><b>Scratch card reveal</b><br>A canvas scratch-off that uncovers the wedding date.</td>
+  </tr>
+  <tr>
+    <td><b>Venue and directions</b><br>Venue section with a one-tap link to Google Maps.</td>
+    <td><b>Music player</b><br>Background track with a mute toggle that remembers the choice in localStorage.</td>
+    <td><b>Ambient effects</b><br>Floating petals, glass panels and a scroll-to-top button near the end.</td>
+  </tr>
+</table>
 
-# ✨ Highlights
+<img src="assets/divider.svg" alt="" width="100%">
 
-### 💞 Interactive Love Story
+## ◈ Preview
 
-A beautifully crafted timeline showcasing the journey from first meeting to forever.
+<div align="center">
+  <img src="docs/preview.webp" alt="Invitation preview" width="85%">
+</div>
 
-### ⏳ Live Wedding Countdown
+Design language: burgundy, gold, champagne and ivory, set in Great Vibes, Playfair Display and Cormorant Garamond.
 
-Real-time countdown building anticipation for the wedding day.
+<img src="assets/divider.svg" alt="" width="100%">
 
-### 📝 RSVP System
+## ◈ Architecture
 
-Custom RSVP experience connected directly with Google Forms.
+```mermaid
+flowchart LR
+    CFG["config/wedding.ts<br/>content and form ids"] --> PAGE["app/page.tsx"]
+    PAGE --> OPEN["OpeningScreen"]
+    OPEN -->|tap to enter| MAIN["Sections"]
+    MAIN --> S1["Hero, Blessing, ScratchCard"]
+    MAIN --> S2["Countdown, LoveStory, Gallery"]
+    MAIN --> S3["Events, Venue"]
+    MAIN --> S4["RSVP, GuestWishes, Closing"]
+    PAGE --> MUSIC["MusicPlayer"]
+    S4 -->|POST no-cors| GF[("Google Forms")]
+    MUSIC -.->|mute flag| LS[("localStorage")]
+```
 
-### 📍 Venue & Directions
+<img src="assets/divider.svg" alt="" width="100%">
 
-Integrated maps and navigation support for guests.
+## ◈ Tech Stack
 
-### 🖼️ Luxury Gallery
+| Layer | Technologies | Purpose |
+|---|---|---|
+| Framework | Next.js 16 (App Router), React 19, TypeScript | Page shell, fonts, image optimisation |
+| Styling | Tailwind CSS 4, CSS variables | Luxury theme and responsive layout |
+| Motion | Framer Motion, Swiper (EffectCards) | Scroll reveals, transitions, gallery |
+| Interaction | canvas-confetti, HTML canvas | Confetti and scratch card |
+| Data | Google Forms (fire and forget POST) | RSVP and guest wishes, no server |
+| Utilities | date-fns, react-icons | Countdown maths and icons |
+| Hosting | Vercel | Deployment |
 
-Interactive polaroid-style memories gallery powered by Swiper.js.
+<img src="assets/divider.svg" alt="" width="100%">
 
-### 🌸 Ambient Petal Animation
+## ◈ Getting Started
 
-Custom animated flower petals flowing across the entire experience.
+Prerequisites: Node.js 20 or newer and npm.
 
-### 🎵 Wedding Atmosphere
+```bash
+git clone https://github.com/Saji-d/my-wedding-invitation.git
+cd my-wedding-invitation
+npm install
+npm run dev      # http://localhost:3000
+```
 
-Elegant transitions, visual effects, and immersive storytelling.
+```bash
+npm run build    # production build
+npm run start    # serve the build
+npm run lint
+```
 
-### 📱 Fully Responsive
+No environment variables are needed. To adapt it, edit `src/config/wedding.ts` (names, date, venue link, timeline, gallery, form entry ids) and replace the files in `public/images` and `public/music`.
 
-Optimized for mobile, tablet, laptop, and desktop screens.
+<img src="assets/divider.svg" alt="" width="100%">
 
----
+## ◈ Project Structure
 
-# 🎨 Design Philosophy
-
-The design follows a **Modern Luxury Wedding Theme**.
-
-### Color Palette
-
-| Color | Purpose |
-|---------|----------|
-| Burgundy (#800020) | Luxury & Romance |
-| Gold (#D4AF37) | Elegance & Celebration |
-| Champagne (#F7E7CE) | Warmth & Softness |
-| Ivory (#FFFFF0) | Clean Contrast |
-
-### Typography
-
-* Great Vibes
-* Playfair Display
-* Cormorant Garamond
-
-Together these fonts create a timeless and elegant wedding aesthetic.
-
----
-
-# 🚀 Core Features
-
-✅ Animated Entry Experience
-
-✅ Luxury Hero Section
-
-✅ Love Story Timeline
-
-✅ Interactive Image Gallery
-
-✅ Scratch Card Invitation Reveal
-
-✅ Wedding Countdown
-
-✅ Ceremony Schedule
-
-✅ Venue Information
-
-✅ Google Maps Integration
-
-✅ RSVP Management
-
-✅ Guest Wishes Book
-
-✅ Islamic Blessings
-
-✅ Floating Petal System
-
-✅ Mobile First Design
-
-✅ Smooth Scroll Animations
-
----
-
-# 🛠 Tech Stack
-
-## Frontend
-
-* Next.js 15
-* React 19
-* TypeScript
-* Tailwind CSS v4
-
-## Animations
-
-* Framer Motion
-* GSAP
-
-## UI Components
-
-* Swiper.js
-* React Icons
-
-## Utilities
-
-* date-fns
-
-## Deployment
-
-* Vercel
-
----
-
-## 📂 Project Structure
+<details>
+<summary>Show tree</summary>
 
 ```text
 src/
-├── app/
-│   ├── globals.css         # Global styles, Tailwind directives, and custom animations
-│   ├── layout.tsx          # Root HTML layout and metadata
-│   └── page.tsx            # Main assembly of the invitation application
-├── components/
-│   ├── layout/
-│   │   └── BackgroundEffects.tsx  # Ambient GSAP petal animation system
-│   ├── sections/
-│   │   ├── Closing.tsx            # Final decorative sign-off
-│   │   ├── Countdown.tsx          # Dynamic countdown timer
-│   │   ├── Events.tsx             # Celebration itinerary and location
-│   │   ├── Gallery.tsx            # Interactive swiper image gallery
-│   │   ├── Hero.tsx               # Cinematic landing banner
-│   │   ├── IslamicBlessing.tsx    # Bismillah and Surah Ar-Rum
-│   │   ├── LoveStory.tsx          # Alternating interactive timeline
-│   │   ├── OpeningScreen.tsx      # Entry gateway and music trigger
-│   │   ├── RSVP.tsx               # Google Forms connected attendance form
-│   │   └── Venue.tsx              # Map and directional details
-│   └── ui/
-│       └── MusicPlayer.tsx        # Ambient background music controller
-└── config/
-    └── wedding.ts          # Centralized configuration (Names, Dates, Images, Links)
+  app/            layout.tsx, page.tsx, globals.css
+  components/
+    layout/       BackgroundEffects
+    sections/     OpeningScreen, Hero, WordsFromTheHeart, IslamicBlessing,
+                  ScratchCard, Countdown, LoveStory, Gallery, Events,
+                  Venue, RSVP, GuestWishes, Quotes, Closing
+    ui/           MusicPlayer
+  config/         wedding.ts
+public/
+  images/         gallery, love_story
+  music/
 ```
 
----
+</details>
 
-The architecture is fully component-based for maintainability and scalability.
+<img src="assets/divider.svg" alt="" width="100%">
 
----
+## ◈ Roadmap
 
-# 📱 Responsive Experience
+- [x] Animated entry, hero, countdown, gallery and love story
+- [x] RSVP and guest wishes through Google Forms
+- [ ] Remove unused dependencies (mapbox-gl, EmailJS and GSAP are installed but not imported)
+- [ ] Move contact details out of the public config file
+- [ ] Optional light and dark theme toggle
 
-The invitation was designed using a mobile-first philosophy.
+<img src="assets/divider.svg" alt="" width="100%">
 
-### Mobile
+## ◈ Author
 
-* Optimized typography
-* Swipe gestures
-* Faster loading
+**Sajidur Rahman Sajid** - Full-Stack Developer and AI engineer, Dhaka.
 
-### Tablet
+[Portfolio](https://www.sajidur.me) · [LinkedIn](https://www.linkedin.com/in/sajidur-rahman-sajid/) · [GitHub](https://github.com/Saji-d) · [Email](mailto:sajidsajidurrahman99@gmail.com)
 
-* Balanced spacing
-* Enhanced layouts
-
-### Desktop
-
-* Cinematic presentation
-* Full-width luxury experience
-* Advanced animations
-
----
-
-# 🌸 Signature Features
-
-### Petal Rain System
-
-A custom floating petal animation built specifically for this project.
-
-### Ceremony Petal Burst
-
-A special celebration effect triggered when guests enter the invitation.
-
-### Luxury Countdown
-
-An elegant countdown design synchronized to the wedding date.
-
-### Interactive Storytelling
-
-Smooth reveal animations guide visitors naturally through the invitation.
-
----
-
-# 💌 RSVP Flow
-
-The RSVP system works seamlessly:
-
-1. Guest enters their information
-2. Custom form validates data
-3. Submission is sent directly to Google Forms
-4. Response is stored automatically in Google Sheets
-5. Guest receives instant confirmation
-
-No backend server required.
-
----
-
-# ❤️ A Personal Note
-
-To our beloved family and friends,
-
-Thank you for your love, support, prayers, and blessings throughout our journey.
-
-This website was created not only as an invitation but also as a memory we can cherish forever.
-
-We cannot wait to celebrate this beautiful day with all of you and begin the next chapter of our lives together.
-
-**With Love,**
-
-### Sajid & Dilruba
-
----
-
-# 🔗 Links
-
-## 💖 Luxury Wedding Invitation
-
-https://github.com/Saji-d/my-wedding-invitation
-
-Live Website
-
-https://sajid-weds-dilruba.vercel.app/
-
----
-
-## 🤍 Formal Wedding Invitation
-
-https://github.com/Saji-d/formal-wedding-invitation
-
-Live Website
-
-https://sajid-dilruba-wedding-invitation.vercel.app/
-
----
-
-## 🎉 Reception Invitation
-
-https://github.com/Saji-d/sajid-dilruba-reception
-
-Live Website
-
-https://sajid-dilruba-reception.vercel.app/
-
----
-
-<div align="center">
-
-
-### ✨ Crafted with Love, Code & Countless Cups of Coffee ☕
-
-**© 2026 Sajid & Dilruba Wedding Invitation**
-
-</div>
+<sub>Built with love for a very special day.</sub>
